@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Tab, Tabs } from 'react-bootstrap';
 
-import DashboardSetting from './dashboardSetting';
+import DashboardSetting from './dashboardSettings/index';
 import MyC2E from './myc2e';
 import Marketplace from './marketplace';
 
