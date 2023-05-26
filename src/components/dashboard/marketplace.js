@@ -1,24 +1,24 @@
-import React from 'react';
-import Accordion from 'react-bootstrap/Accordion';
-import DataTable from 'react-data-table-component';
-import More from '../../assets/images/more.svg';
-import FIlter from '../../assets/images/filter.svg';
+import React from "react";
+import Accordion from "react-bootstrap/Accordion";
+import DataTable from "react-data-table-component";
+import More from "../../assets/images/more.svg";
+import FIlter from "../../assets/images/filter.svg";
 
 const dataList = [
   {
-    name: 'asdasdasd',
-    title: 'kfjsdjkfhsdjkf',
-    price: '$3232',
+    name: "asdasdasd",
+    title: "kfjsdjkfhsdjkf",
+    price: "$3232",
   },
   {
-    name: 'asdd',
-    title: 'jsdjkfhsdjkf',
-    price: '$3232',
+    name: "asdd",
+    title: "jsdjkfhsdjkf",
+    price: "$3232",
   },
   {
-    name: 'adajkchcsd',
-    title: 'kygdsdg78',
-    price: '$3232',
+    name: "adajkchcsd",
+    title: "kygdsdg78",
+    price: "$3232",
   },
 ];
 
@@ -91,7 +91,7 @@ const Marketplace = () => {
             columns={[
               {
                 name: (
-                  <p className="font-medium text-sm text-[#767676]">
+                  <p className="font-medium text-sm text-gray100">
                     Marketplace
                   </p>
                 ),
@@ -104,34 +104,33 @@ const Marketplace = () => {
                     </p>
                   </div>
                 ),
-                sortId: 'iconName',
+                sortId: "iconName",
               },
               {
-                name: (
-                  <p className="font-medium text-sm text-[#767676]">Title</p>
-                ),
+                name: <p className="font-medium text-sm text-gray100">Title</p>,
                 sortable: true,
                 selector: (row) => (
                   <div className="">
-                    <p className="font-medium text-sm text-[#767676]">
+                    <p className="font-medium text-sm text-gray100">
                       {row.title}
                     </p>
                   </div>
                 ),
-                sortId: 'name',
+                sortId: "name",
               },
 
               {
                 name: (
-                  <p className="font-medium text-sm text-[#767676]">
-                    Purchased
-                  </p>
+                  <p className="font-medium text-sm text-gray100">Purchased</p>
                 ),
                 cell: (row) => {
                   return (
                     <div className="flex-grow four">
                       <div className="flex justify-start gap-[5px] meta">
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="checked:accent-lightGreen w-[14px] h-5 rounded-[4px] cursor-pointer "
+                        />
                       </div>
                     </div>
                   );
@@ -139,9 +138,7 @@ const Marketplace = () => {
               },
 
               {
-                name: (
-                  <p className="font-medium text-sm text-[#767676]">Price</p>
-                ),
+                name: <p className="font-medium text-sm text-gray100">Price</p>,
                 cell: (row) => {
                   return (
                     <div className="flex justify-between w-full">
