@@ -1,4 +1,4 @@
-.inventory-tabs {
+.builder-tabs {
   .nav-tabs {
     --bs-nav-tabs-border-width: inherit;
     --bs-nav-tabs-border-color: inherit;
@@ -7,87 +7,95 @@
     --bs-nav-tabs-link-active-color: inherit;
     --bs-nav-tabs-link-active-bg: inherit;
     --bs-nav-tabs-link-active-border-color: inherit;
-    border-bottom: 1px solid #f2f2f2 !important;
+    border-bottom: none !important;
+    gap: 11px !important;
+    margin-bottom: 14px !important;
 
     .nav-item {
       .nav-link {
-        font-family: "Inter";
+        font-family: 'Rubik';
         font-style: normal;
         font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        color: #414753;
-        min-width: 88px;
-        padding: 4px 6px 8px 0;
-        position: relative;
-        margin-right: 16px;
-        // .title-icon svg path{
-        //   stroke: #414753 !important;
-        // }
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        width: 89px;
+        height: 36px;
+        padding: 8px 10px;
+        background-color: #ffffff;
+
         &.active {
-          color: #3d88e0;
-          border-bottom: 3px solid #3d88e0;
-          padding: 4px 6px 5px 0;
-          // .title-icon svg path {
-          //   stroke: #e7006a !important;
-          //   fill: #e7006a;
-          // }
+          color: #2e68bf;
+          border-bottom: 2px solid #f8af2c;
         }
       }
     }
   }
 }
 
-// Action tabs
-.action-inventory-tabs {
-  .nav-item {
-    .nav-link {
-      min-width: auto !important;
-    }
-  }
-}
-.permission-table {
-  .sc-dmXXqC.dLPHLX {
-    .sc-fLsdZI.fOcRrp {
-      .sc-beySbM.dehtZj.rdt_Table {
-        .sc-guDLRT.jnKa-Dc.rdt_TableHead {
-          .sc-dmyDGi.eYOasi.rdt_TableHeadRow {
-            .rdt_TableCol {
-              max-width: inherit !important;
-              min-width: inherit !important;
+// accrodion
 
-              &:first-child {
-                .fpbtCN {
-                  width: 710px !important;
-                }
-              }
+.builder_accordion {
+  .accordion {
+    .accordion-item {
+      color: inherit;
+      background-color: inherit;
+      border-bottom: 1px solid #f8af2c !important;
+      margin-bottom: 7px;
+
+      .accordion-header {
+        height: 19px !important;
+        .accordion-button {
+          font-family: 'Rubik';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 8px;
+          line-height: 15px;
+          letter-spacing: 0.01em;
+          color: #2e68bf;
+          padding: 0 0 0 29px !important;
+          background-color: #ffffff !important;
+          box-shadow: inherit !important;
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 19px;
+            background-image: url('../images/b-b-arrow.svg');
+            transform: rotate(180deg);
+          }
+
+          &.collapsed {
+            color: #000000;
+            &::before {
+              transform: rotate(0deg);
+              background-image: url('../images/b-a-arrow.svg');
             }
+          }
+          &:focus {
+            border-color: inherit !important;
+            box-shadow: inherit !important;
+          }
+
+          &::after {
+            content: inherit !important;
           }
         }
       }
-    }
-  }
-}
 
-// order-detail-table-kR
-
-.order-detail-table-kR {
-  .rdt_Table {
-    .rdt_TableHead {
-      .rdt_TableHeadRow {
-        border-bottom: none !important;
+      .accordion-body {
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 8px;
+        line-height: 13px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        padding: 4px 0 4px 29px !important;
       }
-    }
-  }
-}
-
-// notebook_table
-
-.notebook_table {
-  .rdt_TableHeadRow {
-    .rdt_TableCol:nth-child(2) {
-      max-width: clamp(330px, 48vw, 850px);
-      min-width: clamp(330px, 48vw, 850px);
     }
   }
 }
