@@ -11,21 +11,21 @@ module.exports = {
   theme: {
     colors: {
       primarycolor: "#084892",
+      primarycolor2: "#2E68BF",
+      blueHighlight: "#F7FAFF",
       white: "#ffffff",
       gray100: "#767676",
       mainbg: "#F1F1F1",
       borderColor: "#DDDDDD",
+      borderGray: "#CCCCCC",
+      black: "#000000",
+      yellowColor: "#F8AF2C",
       bgGrey: "#FAFAFA",
     },
     boxShadow: {
       mainshadow: "0px 4px 12px 2px rgba(81, 81, 81, 0.16)",
       smallshadow: "2px 2px 5px rgba(116, 116, 116, 0.25",
-      // smallshadow: "0px 4px 12px 2px rgba(81, 81, 81, 0.16)",
-      // lgshadow: "0px 44px 44px rgba(35, 37, 55, 0.2)",
-      // mdshadow: "23px 27px 0px rgba(0, 17, 141, 0.1)",
-      // smshadow: "0 10px 7px -3px rgb(0, 0, 0 ,0.1), 0 4px 6px 7px rgb(0, 0, 0 , 0.1)",
-      // xsmshadow: "5px 0px 0px rgba(0, 17, 141, 0.2)",
-      // xsshadow: "6px 9px 0px rgba(0, 17, 141, 0.1)",
+      mdshadow: "0px -2px 4px rgba(0, 0, 0, 0.25), 3px 4px 7px rgba(0, 0, 0, 0.25)",
     },
     backgroundImage: {
       blueGradient: "linear-gradient(180deg, rgba(81, 81, 81, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%)",

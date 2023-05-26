@@ -50,6 +50,7 @@ const Index = () => {
           </Accordion.Item>
         </Accordion>
       </div>
+      <div className=" "></div>
     </div>
   );
 };
