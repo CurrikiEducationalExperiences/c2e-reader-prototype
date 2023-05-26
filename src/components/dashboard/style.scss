@@ -73,3 +73,33 @@ ul.nav.nav-tabs {
     }
   }
 }
+
+// slider styles
+
+// .dashboard_slider {
+//   .slick-slide {
+//     width: 302px;
+//   }
+// }
+.slick-slider {
+  button.slick-arrow.slick-prev {
+    // background: #084892;
+    margin: 0 5px;
+    border-radius: 50%;
+    &::before {
+      background: #084892;
+      border-radius: 50%;
+      opacity: 1;
+    }
+  }
+  button.slick-arrow.slick-next {
+    // background: #084892;
+    margin: 0 5px;
+    border-radius: 50%;
+    &::before {
+      background: #084892;
+      border-radius: 50%;
+      opacity: 1;
+    }
+  }
+}
