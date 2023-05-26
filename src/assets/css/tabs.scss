@@ -13,7 +13,7 @@
 
     .nav-item {
       .nav-link {
-        font-family: 'Rubik';
+        font-family: "Rubik";
         font-style: normal;
         font-weight: 600;
         font-size: 12px;
@@ -47,7 +47,7 @@
       .accordion-header {
         height: 19px !important;
         .accordion-button {
-          font-family: 'Rubik';
+          font-family: "Rubik";
           font-style: normal;
           font-weight: 500;
           font-size: 8px;
@@ -58,13 +58,13 @@
           background-color: #ffffff !important;
           box-shadow: inherit !important;
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             top: 0;
             width: 20px;
             height: 19px;
-            background-image: url('../images/b-b-arrow.svg');
+            background-image: url("../images/b-b-arrow.svg");
             transform: rotate(180deg);
           }
 
@@ -72,7 +72,7 @@
             color: #000000;
             &::before {
               transform: rotate(0deg);
-              background-image: url('../images/b-a-arrow.svg');
+              background-image: url("../images/b-a-arrow.svg");
             }
           }
           &:focus {
@@ -87,7 +87,7 @@
       }
 
       .accordion-body {
-        font-family: 'Rubik';
+        font-family: "Rubik";
         font-style: normal;
         font-weight: 300;
         font-size: 8px;
@@ -128,7 +128,7 @@ ul.nav.nav-tabs {
     }
   }
   .nav-link {
-    font-family: 'Rubik';
+    font-family: "Rubik";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -139,7 +139,7 @@ ul.nav.nav-tabs {
   .nav-link.active {
     color: #084892;
     background: #fff;
-    font-family: 'Rubik';
+    font-family: "Rubik";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -163,7 +163,7 @@ ul.nav.nav-tabs {
           outline: none;
         }
         .accordion-button {
-          font-family: 'Rubik';
+          font-family: "Rubik";
           font-style: normal;
           font-weight: 400;
           font-size: 10px;
@@ -197,6 +197,7 @@ ul.nav.nav-tabs {
 
 .grid_list_cards {
   ul.nav.nav-tabs {
+    justify-content: end;
     gap: 0;
     margin-bottom: 16px;
     .nav-link {

@@ -4,7 +4,7 @@ import ProductCard from "../../../utils/productCard1";
 
 const GridCard = () => {
   return (
-    <div className=" max-w-[1020px] flex flex-wrap gap-4 mt-[120px] mb-[39px] ">
+    <div className=" max-w-[1030px] flex flex-wrap gap-4 mt-[120px] mb-[39px] ">
       <ProductCard
         ProductCardTitle1="Lorem Ipsum"
         ProductCardPrice1="$26"
