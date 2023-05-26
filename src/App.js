@@ -7,6 +7,7 @@ import Income from "./utils/income";
 import MarketPlace from "./utils/marketPlace";
 import ProductCard from "./utils/productCard";
 import ProductCard1 from "./utils/productCard1";
+import ProductCard2 from "./utils/productCard2";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/marketPlace" element={<MarketPlace />} />
         <Route path="/productCard" element={<ProductCard />} />
         <Route path="/productCard1" element={<ProductCard1 />} />
+        <Route path="/productCard2" element={<ProductCard2 />} />
       </Routes>
     </>
   );
