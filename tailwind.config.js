@@ -14,6 +14,7 @@ module.exports = {
       white: "#ffffff",
       gray100: "#767676",
       mainbg: "#F1F1F1",
+      borderColor: "#DDDDDD",
     },
     boxShadow: {
       mainshadow: "0px 4px 12px 2px rgba(81, 81, 81, 0.16)",
@@ -24,7 +25,9 @@ module.exports = {
       // xsmshadow: "5px 0px 0px rgba(0, 17, 141, 0.2)",
       // xsshadow: "6px 9px 0px rgba(0, 17, 141, 0.1)",
     },
-
+    backgroundImage: {
+      blueGradient: "linear-gradient(180deg, rgba(81, 81, 81, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%)",
+    },
     fontFamily: {
       OpenSans: "Open Sans, sans-serif",
       Rubik: "Rubik, sans-serif",
