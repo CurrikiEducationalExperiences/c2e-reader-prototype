@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
+import { Tab, Tabs } from 'react-bootstrap';
 
-import DashboardSetting from "./dashboardSettings/index";
-import MyC2E from "./myc2e";
-import Marketplace from "./marketplace";
+import DashboardSetting from './dashboardSettings/index';
+import MyC2E from './myc2e';
+import Marketplace from './marketplace';
 
-import "./style.scss";
+import './style.scss';
 
 const Index = () => {
   return (
