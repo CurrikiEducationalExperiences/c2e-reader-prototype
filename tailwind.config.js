@@ -26,12 +26,11 @@ module.exports = {
     boxShadow: {
       mainshadow: "0px 4px 12px 2px rgba(81, 81, 81, 0.16)",
       smallshadow: "2px 2px 5px rgba(116, 116, 116, 0.25)",
-      mdshadow:
-        "0px -2px 4px rgba(0, 0, 0, 0.25), 3px 4px 7px rgba(0, 0, 0, 0.25)",
+      mdshadow: "0px -2px 4px rgba(0, 0, 0, 0.25), 3px 4px 7px rgba(0, 0, 0, 0.25)",
+      hovershadow: "2px 5px 7px rgba(0, 0, 0, 0.25)",
     },
     backgroundImage: {
-      blueGradient:
-        "linear-gradient(180deg, rgba(81, 81, 81, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%)",
+      blueGradient: "linear-gradient(180deg, rgba(81, 81, 81, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%)",
     },
     fontFamily: {
       OpenSans: "Open Sans, sans-serif",

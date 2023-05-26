@@ -39,6 +39,12 @@
 }
 
 .slick-slider {
+  .slick-slide {
+    > div {
+      width: 302px;
+      margin: 0 auto;
+    }
+  }
   button.slick-arrow.slick-prev {
     // background: #084892;
     margin: 0 5px;
