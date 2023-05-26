@@ -173,3 +173,23 @@ ul.nav.nav-tabs {
     }
   }
 }
+
+// grid list tabs cards
+
+.grid_list_cards {
+  ul.nav.nav-tabs {
+    gap: 0;
+    margin-bottom: 16px;
+    .nav-link {
+      background: #f6f8f9;
+      padding: 9px;
+    }
+    .nav-link.active {
+      background: #e5e9eb;
+      padding: 9px;
+    }
+  }
+  .tab-content {
+    // width: 100%;
+  }
+}
