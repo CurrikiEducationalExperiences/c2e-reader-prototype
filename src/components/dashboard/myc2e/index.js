@@ -19,9 +19,11 @@ const Index = () => {
       <div className=" grid_list_cards  w-auto ">
         <Tabs defaultActiveKey="grid" id="uncontrolled-tab-example">
           <Tab eventKey="grid" title={<img src={Grid} alt="icon" />}>
+            <div className=" max-w-[1011px] border border-borderColor mt-[18px]  mb-[12px] "></div>
             <GridCard />
           </Tab>
           <Tab eventKey="list" title={<img src={List} alt="icon" />}>
+            <div className=" max-w-[1011px] border border-borderColor my-[16px] "></div>
             <ListCard />
           </Tab>
         </Tabs>
