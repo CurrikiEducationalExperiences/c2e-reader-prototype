@@ -1,10 +1,8 @@
 import React from "react";
 
-import Accordion from "react-bootstrap/Accordion";
 import DataTable from "react-data-table-component";
 
 import More from "../../assets/images/more.svg";
-import FIlter from "../../assets/images/filter.svg";
 import FilterResult from "./filterResult";
 
 const dataList = [
@@ -64,7 +62,7 @@ const Marketplace = () => {
                   return (
                     <div className="flex-grow four">
                       <div className="flex justify-start gap-[5px] meta">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checked:accent-lightGreen w-[14px] h-5 rounded-[4px] cursor-pointer " />
                       </div>
                     </div>
                   );
