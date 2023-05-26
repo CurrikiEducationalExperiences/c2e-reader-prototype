@@ -3,8 +3,6 @@ import React from "react";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 
-import "./style.scss";
-
 const Layout = ({ children }) => {
   return (
     <div className="">

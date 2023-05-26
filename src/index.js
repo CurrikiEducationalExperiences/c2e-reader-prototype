@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import App from "./App";
 
+import "../src/assets/css/tabs.scss";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

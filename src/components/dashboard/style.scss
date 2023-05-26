@@ -1,39 +1,3 @@
-// tabs styling
-ul.nav.nav-tabs {
-  margin-bottom: 30px;
-  border-bottom: none;
-  gap: 8px;
-
-  li.nav-item button {
-    padding: 8px 35px;
-    // border-color: #084892;
-    &:focus-visible {
-      border-bottom: none;
-    }
-    &:hover {
-      border-bottom: none;
-    }
-  }
-  .nav-link {
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #fff;
-    background: #084892;
-  }
-  .nav-link.active {
-    color: #084892;
-    background: #fff;
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-  }
-}
-
 // downarrown dropdown menu styles
 .dropdown_menu {
   width: 100%;

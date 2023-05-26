@@ -15,9 +15,11 @@ module.exports = {
       gray100: "#767676",
       mainbg: "#F1F1F1",
       borderColor: "#DDDDDD",
+      bgGrey: "#FAFAFA",
     },
     boxShadow: {
       mainshadow: "0px 4px 12px 2px rgba(81, 81, 81, 0.16)",
+      smallshadow: "2px 2px 5px rgba(116, 116, 116, 0.25",
       // smallshadow: "0px 4px 12px 2px rgba(81, 81, 81, 0.16)",
       // lgshadow: "0px 44px 44px rgba(35, 37, 55, 0.2)",
       // mdshadow: "23px 27px 0px rgba(0, 17, 141, 0.1)",
