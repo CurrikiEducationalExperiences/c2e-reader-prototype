@@ -5,6 +5,9 @@ import Layout from '../src/components/layout';
 import Dashboard from '../src/pages/index';
 import Income from './utils/income';
 import MarketPlace from './utils/marketPlace';
+import ProductCard from './utils/productCard';
+import ProductCard1 from './utils/productCard1';
+import ProductCard2 from './utils/productCard2';
 import Builder from '../src/pages/builder';
 
 const App = () => {
@@ -16,6 +19,9 @@ const App = () => {
         <Route path="/income" element={<Income />} />
         <Route path="/marketPlace" element={<MarketPlace />} />
         <Route path="/builder" element={<Builder />} />
+        <Route path="/productCard" element={<ProductCard />} />
+        <Route path="/productCard1" element={<ProductCard1 />} />
+        <Route path="/productCard2" element={<ProductCard2 />} />
       </Routes>
     </>
   );
