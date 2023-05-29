@@ -1,34 +1,45 @@
-import React from 'react';
-import Accordion from 'react-bootstrap/Accordion';
-import DataTable from 'react-data-table-component';
-import More from '../../assets/images/more.svg';
+import React from "react";
+import Accordion from "react-bootstrap/Accordion";
+import DataTable from "react-data-table-component";
+import More from "../../assets/images/more.svg";
+import FIlter from "../../assets/images/filter.svg";
 
 const dataList = [
   {
-    name: 'asdasdasd',
-    title: 'kfjsdjkfhsdjkf',
-    price: '$3232',
+    name: "asdasdasd",
+    title: "kfjsdjkfhsdjkf",
+    price: "$3232",
   },
   {
-    name: 'asdd',
-    title: 'jsdjkfhsdjkf',
-    price: '$3232',
+    name: "asdd",
+    title: "jsdjkfhsdjkf",
+    price: "$3232",
   },
   {
-    name: 'adajkchcsd',
-    title: 'kygdsdg78',
-    price: '$3232',
+    name: "adajkchcsd",
+    title: "kygdsdg78",
+    price: "$3232",
   },
 ];
 
 const Marketplace = () => {
   return (
-    <div className="mt-[42px] pb-[42]">
+    <div className="mt-[42px] pb-[42px]">
       <h3 className=" font-medium text-sm text-[#084892] w-full pb-[18px] border-b-[1px] border-solid border-b-[#DDDDDD] mb-[23px]">
         MARKETPLACE LISTINGS
       </h3>
-      <div className="flex  gap-6">
-        <div className="c2e_accordion w-[253px] shadow-smallshadow bg-white p-[16px] ">
+      <div className=" w-full flex  gap-6">
+        <div className="c2e_accordion w-[253px] flex-shrink-0 shadow-smallshadow bg-white p-[16px] ">
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-[6px] ">
+              <img src={FIlter} />
+
+              <p className="font-normal  text-base text-black m-0">
+                Filter Result <span className="font-light text-xs">(12)</span>
+              </p>
+            </div>
+            <p className="font-light text-base text-primarycolor m-0">Reset</p>
+          </div>
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
               <Accordion.Header>Name</Accordion.Header>
@@ -80,7 +91,7 @@ const Marketplace = () => {
             columns={[
               {
                 name: (
-                  <p className="font-medium text-sm text-[#767676]">
+                  <p className="font-medium text-sm text-gray100">
                     Marketplace
                   </p>
                 ),
@@ -93,31 +104,33 @@ const Marketplace = () => {
                     </p>
                   </div>
                 ),
-                sortId: 'iconName',
+                sortId: "iconName",
               },
               {
-                name: (
-                  <p className="font-medium text-sm text-[#767676]">Title</p>
-                ),
+                name: <p className="font-medium text-sm text-gray100">Title</p>,
                 sortable: true,
                 selector: (row) => (
-                  <p className="font-medium text-sm text-[#767676]">
-                    {row.title}
-                  </p>
+                  <div className="">
+                    <p className="font-medium text-sm text-gray100">
+                      {row.title}
+                    </p>
+                  </div>
                 ),
-                sortId: 'name',
+                sortId: "name",
               },
+
               {
                 name: (
-                  <p className="font-medium text-sm text-[#767676]">
-                    Purchased
-                  </p>
+                  <p className="font-medium text-sm text-gray100">Purchased</p>
                 ),
                 cell: (row) => {
                   return (
                     <div className="flex-grow four">
                       <div className="flex justify-start gap-[5px] meta">
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="checked:accent-lightGreen w-[14px] h-5 rounded-[4px] cursor-pointer "
+                        />
                       </div>
                     </div>
                   );
@@ -125,16 +138,14 @@ const Marketplace = () => {
               },
 
               {
-                name: (
-                  <p className="font-medium text-sm text-[#767676]">Price</p>
-                ),
+                name: <p className="font-medium text-sm text-gray100">Price</p>,
                 cell: (row) => {
                   return (
-                    <div className="flex justify-between">
+                    <div className="flex justify-between w-full">
                       <div className="flex justify-start gap-[5px] meta">
                         {row.price}
                       </div>
-                      {/* <img src={More} /> */}
+                      <img src={More} />
                     </div>
                   );
                 },
