@@ -8,7 +8,7 @@ const productCard2 = ({
   ProductCardDescription2,
 }) => {
   return (
-    <div className="relative">
+    <div className="relative w-full ">
       <div className="absolute top-[29px] left-[-35px]">
         <img src={ProductCardImg} alt="Product Card Image" />
       </div>

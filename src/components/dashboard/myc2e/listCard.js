@@ -4,7 +4,7 @@ import ProductCard from "../../../utils/productCard2";
 
 const ListCard = () => {
   return (
-    <div className=" flex flex-col gap-4 mb-[39px]">
+    <div className="flex flex-col gap-4 mb-[39px]">
       <ProductCard
         ProductCardTitle2="Lorem Ipsum"
         ProductCardPrice2="$26"
