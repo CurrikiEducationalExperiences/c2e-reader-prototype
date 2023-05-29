@@ -10,7 +10,7 @@ import GridCard from "./gridCard";
 import ListCard from "./listCard";
 import FilterResult from "../filterResult";
 
-const Index = () => {
+const Index = ({ MyC2Es }) => {
   return (
     <div className=" mt-[47px] flex justify-between items-start gap-6 ">
       <FilterResult />
@@ -20,11 +20,11 @@ const Index = () => {
         <Tabs defaultActiveKey="grid" id="uncontrolled-tab-example">
           <Tab eventKey="grid" title={<img src={Grid} alt="icon" />}>
             <div className=" max-w-[1011px] border border-borderColor mt-[18px]  mb-[12px] "></div>
-            <GridCard />
+            <GridCard MyC2Es={MyC2Es} />
           </Tab>
           <Tab eventKey="list" title={<img src={List} alt="icon" />}>
             <div className=" max-w-[1011px] border border-borderColor my-[16px] "></div>
-            <ListCard />
+            <ListCard MyC2Es={MyC2Es} />
           </Tab>
         </Tabs>
       </div>

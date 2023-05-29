@@ -23,7 +23,7 @@ const dataList = [
   },
 ];
 
-const Marketplace = () => {
+const Marketplace = ({ MarketDataList }) => {
   return (
     <div className="mt-[42px] pb-[42px]">
       <h3 className=" font-medium text-sm text-[#084892] w-full pb-[18px] border-b-[1px] border-solid border-b-[#DDDDDD] mb-[23px]">MARKETPLACE LISTINGS</h3>
@@ -32,7 +32,7 @@ const Marketplace = () => {
 
         <div className="w-full ">
           <DataTable
-            data={dataList}
+            data={MarketDataList}
             columns={[
               {
                 name: <p className="font-medium text-sm text-[#767676]">Marketplace</p>,

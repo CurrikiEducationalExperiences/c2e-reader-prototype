@@ -4,37 +4,9 @@ import Slider from "react-slick";
 
 import "../style.scss";
 
-import Image from "../../../assets/images/art.png";
 import DropdownButton from "../../../utils/dropdownButton";
 
-const artcard = [
-  {
-    img: Image,
-    text: "Design, Art & History",
-  },
-  {
-    img: Image,
-    text: "Design, Art & History",
-  },
-  {
-    img: Image,
-    text: "Design, Art & History",
-  },
-  {
-    img: Image,
-    text: "Design, Art & History",
-  },
-  {
-    img: Image,
-    text: "Design, Art & History",
-  },
-  {
-    img: Image,
-    text: "Design, Art & History",
-  },
-];
-
-const TopSettings = () => {
+const TopSettings = ({ datacard }) => {
   const settings = {
     dots: false,
     arrows: true,
@@ -69,12 +41,15 @@ const TopSettings = () => {
       },
     ],
   };
+
+  const data = datacard?.filter((item) => item.title === "TOP SETTINGS");
+
   return (
     <>
       <DropdownButton btntext="top settings" />
       <div className=" ">
         <Slider {...settings}>
-          {artcard.map((item, index) => (
+          {data?.[0]?.dashboardList?.map((item, index) => (
             <div
               key={index}
               className=" relative before:absolute before:z-[2] before:left-0 before:right-0 before:h-full before:bg-blueGradient before:rounded-lg flex items-end w-full max-w-[302px] pb-2 pl-4 min-h-[156px] rounded-lg "

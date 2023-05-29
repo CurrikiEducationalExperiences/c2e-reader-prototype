@@ -1,50 +1,24 @@
 import React from "react";
 
-import GridCards from "../../../utils/GridCard";
-
-const GridCard = () => {
+const GridCard = ({ MyC2Es }) => {
   return (
     <div className=" max-w-[1030px] grid grid-cols-4 gap-4 mt-[120px] mb-[39px] ">
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <GridCards
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
+      {MyC2Es?.map((item, index) => (
+        <div key={index} className="relative">
+          <div className="absolute top-[-57px] left-[17px]">
+            <img src={item.img} alt="Product Card Image" />
+          </div>
+          <div className=" pr-4 pl-4 w-[239px] border-[1px] border-solid border-borderColor hover:border-borderGray rounded-[10px] hover:rounded-[10px] hover:bg-blueHighlight shadow-hovershadow   ">
+            <div className="pt-[57px] mb-2">
+              <div className="flex justify-between mb-3 align-baseline">
+                <h2 className="font-normal text-sm mb-0 font-OpenSans hover:text-primarycolor2">{item.title}</h2>
+                <p className="mb-0 font-Rubik">{item.price}</p>
+              </div>
+              <p className="text-sm font-OpenSans text-gray100 ">{item.text}</p>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
