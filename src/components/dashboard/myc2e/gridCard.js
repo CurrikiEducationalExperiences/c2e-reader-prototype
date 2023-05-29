@@ -4,7 +4,7 @@ import GridCards from "../../../utils/GridCard";
 
 const GridCard = () => {
   return (
-    <div className=" max-w-[1030px] flex flex-wrap gap-4 mt-[120px] mb-[39px] ">
+    <div className=" max-w-[1030px] grid grid-cols-4 gap-4 mt-[120px] mb-[39px] ">
       <GridCards
         ProductCardTitle1="Lorem Ipsum"
         ProductCardPrice1="$26"
