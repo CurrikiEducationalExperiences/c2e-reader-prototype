@@ -44,16 +44,15 @@ const TopSettings = () => {
     slidesToScroll: 4,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 992,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -77,9 +76,9 @@ const TopSettings = () => {
           {artcard.map((item, index) => (
             <div
               key={index}
-              className=" relative before:absolute before:z-[2] before:left-0 before:right-0 before:h-full before:bg-blueGradient before:rounded-lg flex items-end w-full max-w-[302px] pb-2 pl-4 min-h-[156px] rounded-lg "
+              className=" relative before:absolute before:z-[2] before:left-0 before:right-0 before:h-full before:bg-blueGradient before:rounded-lg flex items-end  xl:max-w-[302px] laptop:max-w-[270px] lg:max-w-[230px] md:max-w-[230px] max-w-[302px] pb-2 pl-4 min-h-[156px] rounded-lg "
             >
-              <div className=" w-full h-[156px] flex items-end ">
+              <div className="h-[156px] flex items-end ">
                 <h3 className=" text-lg leading-6 font-Rubik font-medium text-white m-0 relative z-[2] ">
                   {item.text}
                 </h3>
@@ -87,7 +86,7 @@ const TopSettings = () => {
               <img
                 src={item.img}
                 alt="image"
-                className=" w-full max-w-[302px] h-full z-[1] absolute top-0 right-0 left-0 rounded-lg "
+                className="h-full z-[1] absolute top-0 right-0 left-0 rounded-lg "
               />
             </div>
           ))}
