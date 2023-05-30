@@ -3,7 +3,11 @@ import React from "react";
 import Contact from "../assets/images/contact.svg";
 import Folder from "../assets/images/folder.svg";
 
-const MarketPlace = ({ marketPlaceTitle, marketPlaceItemSold, marketPlaceProducts }) => {
+const MarketPlace = ({
+  marketPlaceTitle,
+  marketPlaceItemSold,
+  marketPlaceProducts,
+}) => {
   return (
     <div className="p-[16px] w-[241.5px] rounded-lg rounded-s-lg shadow-mainshadow text-gray100">
       <h2 className="text-[18px] mb-[16px] ">{marketPlaceTitle}</h2>

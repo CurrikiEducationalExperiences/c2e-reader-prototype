@@ -68,15 +68,15 @@ export const dashboard = [
     incomeList: [
       {
         price: "$500",
-        income: "Weekly",
+        income: "This Week",
       },
       {
         price: "$1K",
-        income: "Monthly",
+        income: "This Month",
       },
       {
         price: "$500",
-        income: "YTD",
+        income: "This Year",
       },
       {
         price: "$1M",

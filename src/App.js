@@ -7,7 +7,7 @@ import MyC2ES from '../src/components/dashboard/myc2e';
 import MyMarketplace from '../src/components/dashboard/marketplace';
 import Builder from '../src/pages/builder';
 import { dashboard, MyC2Es, MarketDataList } from '../src/data/dummyData';
-import { ThreeDots } from 'react-loader-spinner';
+// import { ThreeDots } from 'react-loader-spinner';
 
 const App = () => {
   const [loading, setLoading] = useState('loading');
@@ -27,7 +27,7 @@ const App = () => {
     <>
       {loading === 'loading' ? (
         <div className="w-full h-[calc(100vh-44px)] flex justify-center items-center">
-          <ThreeDots
+          {/* <ThreeDots
             height="80"
             width="80"
             radius="9"
@@ -36,7 +36,7 @@ const App = () => {
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
-          />
+          /> */}
         </div>
       ) : (
         <>

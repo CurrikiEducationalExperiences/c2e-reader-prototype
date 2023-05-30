@@ -10,8 +10,8 @@ const TopMarketPlace = ({ datacard }) => {
   return (
     <>
       <div className="">
-        <DropdownButton btntext="TOP MARKETPLACES" />
-        <div className=" flex items-center gap-4  flex-wrap">
+        <DropdownButton btntext="MY TOP MARKETPLACES" />
+        <div className="flex items-center gap-4 ">
           {data?.[0]?.marketPlaceList?.map((item, index) => (
             <div
               key={index}
@@ -20,11 +20,11 @@ const TopMarketPlace = ({ datacard }) => {
               <h2 className="text-[18px] mb-[16px] ">{item.heading}</h2>
               <div className="flex items-baseline gap-2 p-1 mb-6 ">
                 <img src={Contact} alt="Contact Icon" />
-                <p className="font-normal text-sm mb-0">{item.title}</p>
+                <p className="mb-0 text-sm font-normal">{item.title}</p>
               </div>
               <div className="flex items-baseline gap-2 p-1">
                 <img src={Folder} alt="Contact Icon" />
-                <p className="font-normal text-sm mb-0">{item.text}</p>
+                <p className="mb-0 text-sm font-normal">{item.text}</p>
               </div>
             </div>
           ))}

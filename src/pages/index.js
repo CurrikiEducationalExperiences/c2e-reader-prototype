@@ -11,7 +11,7 @@ console.log('MarketDataList', MarketDataList);
 const Index = () => {
   return (
     <div className=" w-full bg-mainbg pt-8 pb-8 ">
-      <div className=" max-w-[1330px] m-auto pt-[32px] px-6 bg-white ">
+      <div className=" max-w-[1440px] m-auto pt-[32px] px-6 bg-white ">
         <Dashboard
           dashboard={dashboard}
           MyC2Es={MyC2Es}

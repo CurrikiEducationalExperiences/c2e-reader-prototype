@@ -14,6 +14,7 @@ const TopSettings = ({ datacard }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -40,7 +41,7 @@ const TopSettings = ({ datacard }) => {
 
   return (
     <>
-      <DropdownButton btntext="top settings" />
+      <DropdownButton btntext="MY TOP SELLINGS C2Es" />
       <div className=" ">
         <Slider {...settings}>
           {data?.[0]?.dashboardList?.map((item, index) => (
