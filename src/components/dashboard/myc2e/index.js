@@ -11,8 +11,8 @@ import ListCard from "./listCard";
 
 const Index = () => {
   return (
-    <div className=" mt-[47px] flex justify-between items-start ">
-      <div className="c2e_accordion w-full max-w-[253px] shadow-smallshadow bg-white p-[16px] ">
+    <div className=" mt-[47px] flex gap-16 items-start ">
+      <div className="c2e_accordion w-[30%] max-w-[253px] shadow-smallshadow bg-white p-[16px] ">
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header>Name</Accordion.Header>
@@ -59,7 +59,7 @@ const Index = () => {
       </div>
       {/* <div className=" flex items-center gap-[4px] "> */}
       {/* <p className=" mb-[18px] text-black text-[14px] leading-5 font-Rubik font-normal ">view by</p> */}
-      <div className=" grid_list_cards ">
+      <div className=" grid_list_cards w-[70%]">
         <Tabs defaultActiveKey="grid" id="uncontrolled-tab-example">
           <Tab eventKey="grid" title={<img src={Grid} alt="icon" />}>
             <GridCard />
