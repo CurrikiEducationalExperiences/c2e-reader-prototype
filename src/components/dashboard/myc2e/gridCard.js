@@ -7,8 +7,12 @@ const GridCard = ({ MyC2Es }) => {
     <div className="  w-full flex flex-wrap gap-4 mt-[37px] mb-[39px] ">
       {MyC2Es?.map((item, index) => (
         <div key={index} className=" min-h-[309px] w-[243px]">
-          <div className=" top-[50px] left-[17px] relative">
-            <img src={item.img} alt="Product Card Image" />
+          <div className=" top-[50px] left-[17px] relative ">
+            <img
+              src={item.img}
+              alt="Product Card Image "
+              className="w-[97px] h-[104px] rounded-[4px] object-cover "
+            />
           </div>
 
           <div className=" pr-4 pl-4 w-full border-[1px] border-solid border-borderColor hover:border-borderGray rounded-[10px] hover:rounded-[10px] hover:bg-blueHighlight shadow-hovershadow   ">
@@ -21,7 +25,9 @@ const GridCard = ({ MyC2Es }) => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                      <Dropdown.Item href="#/action-1">
+                        Move to Marketplace
+                      </Dropdown.Item>
                       <Dropdown.Item href="#/action-2">
                         Another action
                       </Dropdown.Item>

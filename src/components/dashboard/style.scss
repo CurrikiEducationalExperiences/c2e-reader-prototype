@@ -22,7 +22,7 @@
   .dropdown {
     .dropdown-toggle {
       color: #084892;
-      font-family: "Rubik";
+      font-family: 'Rubik';
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
@@ -40,9 +40,10 @@
 
 .slick-slider {
   .slick-slide {
+    width: fit-content !important;
     > div {
       width: 302px;
-      margin: 0 auto;
+      margin: 0 8px;
     }
   }
   button.slick-arrow.slick-prev {
