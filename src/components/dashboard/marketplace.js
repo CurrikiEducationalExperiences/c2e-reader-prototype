@@ -25,7 +25,7 @@ const dataList = [
 
 const Marketplace = ({ MarketDataList }) => {
   return (
-    <div className=" w-full bg-mainbg pt-10 pb-8 ">
+    <div className=" w-full bg-mainbg pt-8 pb-8 pl-[167px]">
       <div className=" max-w-[1330px] m-auto pt-[32px] px-6 bg-white ">
         <div className="mt-[42px] pb-[42px]">
           <h3 className=" font-medium text-sm text-[#084892] w-full pb-[18px] border-b-[1px] border-solid border-b-[#DDDDDD] mb-[23px]">

@@ -12,7 +12,7 @@ import FilterResult from '../filterResult';
 
 const Index = ({ MyC2Es }) => {
   return (
-    <div className=" w-full bg-mainbg pt-10 pb-8 ">
+    <div className=" w-full bg-mainbg pt-8 pb-8  pl-[167px]">
       <div className=" max-w-[1330px] m-auto pt-[32px] px-6 bg-white ">
         <div className=" mt-[47px] flex justify-between items-start gap-6 ">
           <FilterResult />
