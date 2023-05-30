@@ -22,6 +22,7 @@ module.exports = {
       yellowColor: "#F8AF2C",
       bgGrey: "#FAFAFA",
       lightGreen: "#3ca900e3",
+      lightgrey: "#e5e5e5",
     },
     boxShadow: {
       mainshadow: "0px 4px 12px 2px rgba(81, 81, 81, 0.16)",
@@ -39,6 +40,7 @@ module.exports = {
     screens: {
       sm: "499px",
       md: "768px",
+      xsm: "580px",
       // => @media (min-width: 640px) { ... }
 
       lg: "992px",

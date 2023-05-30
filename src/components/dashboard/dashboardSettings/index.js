@@ -1,21 +1,18 @@
-import React from 'react';
+import React from "react";
 
-// import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
+import "../style.scss";
 
-import '../style.scss';
-
-import TopSettings from './Settings';
-import TopMarketPlace from './TopMarketPlace';
-import Income from './income';
+import TopSettings from "./Settings";
+import TopMarketPlace from "./TopMarketPlace";
+import Income from "./income";
 
 const DashboardSetting = ({ dashboardData }) => {
   const datacard = dashboardData?.map((item) => item);
 
   return (
-    <div className=" w-full bg-mainbg pt-3 pb-8  pl-[167px]">
-      <div className=" max-w-[1440px] m-auto pt-[32px] px-6 bg-white ">
-        <div className=" pb-[148px] ">
+    <div className=" w-full bg-mainbg pb-8  pl-[167px]">
+      <div className=" w-full m-auto pt-[32px] px-6 bg-white ">
+        <div className=" pb-[60px] md:pb-[148px] ">
           {/* top settings */}
           <TopSettings datacard={datacard} />
 

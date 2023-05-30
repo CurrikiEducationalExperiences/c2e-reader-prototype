@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import Slider from 'react-slick';
+import Slider from "react-slick";
 import Alert from "react-bootstrap/Alert";
 
-import '../style.scss';
+import "../style.scss";
 
-import DropdownButton from '../../../utils/dropdownButton';
-import config from '../../../config/api.json';
+import DropdownButton from "../../../utils/dropdownButton";
+import config from "../../../config/api.json";
 
 const TopSettings = () => {
   const settings = {
@@ -14,7 +14,7 @@ const TopSettings = () => {
     arrows: true,
     infinite: true,
     speed: 500,
-    // slidesToShow: 4,
+    slidesToShow: 4,
     slidesToScroll: 1,
     variableWidth: true,
   };
@@ -39,7 +39,7 @@ const TopSettings = () => {
 
   return (
     <>
-      <DropdownButton btntext="MY TOP SELLINGS C2Es" />
+      <DropdownButton btntext="MY TOP SELLINGS C2Es" className="pt-0" />
       <div className=" ">
         {error && <Alert variant='warning'>{error}</Alert>}
         <Slider {...settings}>

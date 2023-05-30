@@ -22,7 +22,7 @@
   .dropdown {
     .dropdown-toggle {
       color: #084892;
-      font-family: 'Rubik';
+      font-family: "Rubik";
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
@@ -43,9 +43,13 @@
     width: fit-content !important;
     > div {
       width: 302px;
-      margin: 0 8px;
+      margin: 0 9px 0 8.99px;
     }
   }
+  .slick-list .slick-track {
+    display: flex;
+  }
+
   button.slick-arrow.slick-prev {
     // background: #084892;
     margin: 0 5px;
