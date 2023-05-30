@@ -241,6 +241,7 @@ export const filterResults = [
 export const userIncome = [
   {
     username: "alihassan",
+    id: "1",
     income: [
       {
         type: "$500",
@@ -262,6 +263,7 @@ export const userIncome = [
   },
   {
     username: "ahmed",
+    id: "2",
     income: [
       {
         type: "$50",
@@ -283,6 +285,7 @@ export const userIncome = [
   },
   {
     username: "aqib",
+    id: "3",
     income: [
       {
         type: "$400",
@@ -304,6 +307,7 @@ export const userIncome = [
   },
   {
     username: "faisal",
+    id: "4",
     income: [
       {
         type: "$90",
