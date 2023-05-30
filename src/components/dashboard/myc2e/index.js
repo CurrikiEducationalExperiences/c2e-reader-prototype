@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 
-import Grid from '../../../assets/images/grid.svg';
-import List from '../../../assets/images/list.svg';
+import Grid from "../../../assets/images/grid.svg";
+import List from "../../../assets/images/list.svg";
 
-import GridCard from './gridCard';
-import ListCard from './listCard';
-import FilterResult from '../filterResult';
+import GridCard from "./gridCard";
+import ListCard from "./listCard";
+import FilterResult from "../filterResult";
 
 const Index = ({ MyC2Es }) => {
   return (
-    <div className="w-full pt-10 pb-8  bg-mainbg">
+    <div className="w-full pt-3 pb-8 bg-mainbg pl-[167px]">
       <div className=" max-w-[1440px] m-auto pt-[32px] px-6 bg-white ">
         <div className=" mt-[47px] flex justify-between items-start gap-6 ">
           <FilterResult />
