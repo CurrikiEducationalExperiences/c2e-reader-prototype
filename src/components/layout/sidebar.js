@@ -1,28 +1,41 @@
-import React from 'react';
-import C2ELogo from '../../assets/images/c2e.svg';
-import SideBarIcon from '../../assets/images/sidebar-icon.svg';
-import { Link } from 'react-router-dom';
+import React from "react";
+
+import SideBarIcon from "../../assets/images/sidebar-icon.svg";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const Location = useLocation();
+
   return (
     <div className="min-w-[70px] bg-white h-screen z-50 fixed top-0 left-0 px-4 py-5">
-      <div className="w-full h-full flex flex-col justify-start gap-4">
-        <Link to="/" className="no-underline  w-full ">
-          <div className="w-full border-b-[1px] border-solid border-[#084892] hover:bg-[#f1f1f1] text-center p-2 flex flex-col items-center gap-2 ">
+      <div className="w-full h-full flex flex-col justify-start">
+        <Link to="/" className="no-underline hover:underline w-full ">
+          <div
+            className={`${
+              Location.pathname === "/" ? "link-active" : "non-active"
+            } w-full border-b-[1px] border-solid border-lightgrey text-center py-[20px] px-2 flex flex-col items-center gap-[3px] `}
+          >
             <img src={SideBarIcon} alt="SideBarIcon" className="w-5 h-5" />
-            <h4 className="font-normal  text-sm text-[#084892] m-0 ">
-              Dashboard
-            </h4>
+            <h4 className="font-normal  text-sm text-[#084892] m-0 ">Dashboard</h4>
           </div>
         </Link>
-        <Link to="/my-c2e" className="no-underline  w-full">
-          <div className="w-full border-b-[1px] border-solid border-[#084892] hover:bg-[#f1f1f1] text-center  p-2 flex flex-col items-center gap-2">
+        <Link to="/my-c2e" className="no-underline hover:underline w-full">
+          <div
+            className={`${
+              Location.pathname === "/my-c2e" ? "link-active" : "non-active"
+            } w-full border-b-[1px] border-solid border-lightgrey text-center py-[20px] px-2 flex flex-col items-center gap-[3px]`}
+          >
             <img src={SideBarIcon} alt="SideBarIcon" className="w-5 h-5" />
             <h4 className="font-normal  text-sm text-[#084892] m-0">MY C2Es</h4>
           </div>
         </Link>
-        <Link to="/my-marketplace" className="no-underline  w-full">
-          <div className="w-full border-b-[1px] border-solid border-[#084892] hover:bg-[#f1f1f1] text-center  p-2 flex flex-col items-center gap-2">
+        <Link to="/my-marketplace" className="no-underline hover:underline w-full">
+          <div
+            className={`${
+              Location.pathname === "/my-marketplace" ? "link-active" : "non-active"
+            } w-full border-b-[1px] border-solid border-lightgrey text-center py-[20px] px-2 flex flex-col items-center gap-[3px]`}
+          >
             <img src={SideBarIcon} alt="SideBarIcon" className="w-5 h-5" />
             <h4 className="font-normal  text-sm text-[#084892] m-0">
               My Marketplace <br /> Listings

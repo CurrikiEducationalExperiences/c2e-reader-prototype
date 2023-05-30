@@ -14,7 +14,7 @@ const contract = filterResults?.filter((item) => item.title === "Contract assura
 
 const FilterResult = () => {
   return (
-    <div className=" h-[calc(100vh-44px)] c2e_accordion w-full max-w-[253px] flex-shrink-0 shadow-smallshadow bg-white p-[16px] ">
+    <div className=" h-full lg:h-[calc(100vh-44px)] pb-9 lg:pb-0 c2e_accordion w-full lg:w-full lg:max-w-[253px] flex-shrink-0 shadow-smallshadow bg-white p-[16px] ">
       <div className="mb-3 flex items-center justify-between gap-3">
         {filterResult.map((item, index) => (
           <>

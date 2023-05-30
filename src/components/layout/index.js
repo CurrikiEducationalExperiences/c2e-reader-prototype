@@ -1,9 +1,9 @@
-import React from 'react';
-// import { Outlet } from 'react-router-dom';
-import Navbar from './navbar';
-import Sidebar from './sidebar';
+import React from "react";
 
-const Layout = ({ children }) => {
+import Navbar from "./navbar";
+import Sidebar from "./sidebar";
+
+const Layout = () => {
   return (
     <div className="">
       {/* <Navbar /> */}

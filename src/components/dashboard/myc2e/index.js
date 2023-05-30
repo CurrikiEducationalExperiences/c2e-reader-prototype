@@ -12,16 +12,16 @@ import FilterResult from "../filterResult";
 
 const Index = ({ MyC2Es }) => {
   return (
-    <div className="w-full pt-3 pb-8 bg-mainbg pl-[167px]">
+    <div className="w-full pb-8 bg-mainbg pl-[167px]">
       <div className=" max-w-[1440px] m-auto pt-[32px] px-6 bg-white ">
-        <div className=" mt-[47px] flex justify-between items-start gap-6 ">
+        <div className=" flex flex-col lg:flex-row justify-between items-start gap-6 ">
           <FilterResult />
           {/* <div className=" flex items-center gap-[4px] "> */}
           {/* <p className=" mb-[18px] text-black text-[14px] leading-5 font-Rubik font-normal ">View by</p> */}
           <div className="w-full  grid_list_cards">
             <Tabs defaultActiveKey="grid" id="uncontrolled-tab-example">
               <Tab eventKey="grid" title={<img src={Grid} alt="icon" />}>
-                <div className=" max-w-[1011px] border border-borderColor mt-[18px]  mb-[12px] "></div>
+                <div className=" max-w-[1011px] border border-borderColor mt-[18px] mb-[12px] "></div>
                 <GridCard MyC2Es={MyC2Es} />
               </Tab>
               <Tab eventKey="list" title={<img src={List} alt="icon" />}>
