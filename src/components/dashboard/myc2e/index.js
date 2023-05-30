@@ -1,75 +1,38 @@
-import React from "react";
+import React from 'react';
 
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
-import Grid from "../../../assets/images/grid.svg";
-import List from "../../../assets/images/list.svg";
-import Accordion from "react-bootstrap/Accordion";
-import GridCard from "./gridCard";
-import ListCard from "./listCard";
+import Grid from '../../../assets/images/grid.svg';
+import List from '../../../assets/images/list.svg';
 
-const Index = () => {
+import GridCard from './gridCard';
+import ListCard from './listCard';
+import FilterResult from '../filterResult';
+
+const Index = ({ MyC2Es }) => {
   return (
-    <div className=" mt-[47px] flex gap-16 items-start ">
-      <div className="c2e_accordion w-[30%] max-w-[253px] shadow-smallshadow bg-white p-[16px] ">
-        <Accordion defaultActiveKey="0">
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>Name</Accordion.Header>
-            <Accordion.Body>
-              <div className="">
-                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
-                  Lorem ipsum
-                  <span className=""> 12 </span>
-                </p>
-              </div>
-              <div className="">
-                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
-                  Lorem ipsum
-                  <span className=""> 12 </span>
-                </p>
-              </div>
-              <div className="">
-                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
-                  Lorem ipsum
-                  <span className=""> 12 </span>
-                </p>
-              </div>
-              <div className="">
-                <p className=" mb-1 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
-                  Lorem ipsum
-                  <span className=""> 12 </span>
-                </p>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>Type</Accordion.Header>
-            <Accordion.Body></Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="2">
-            <Accordion.Header>License Updates</Accordion.Header>
-            <Accordion.Body></Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="3">
-            <Accordion.Header>Contract assurance</Accordion.Header>
-            <Accordion.Body></Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
+    <div className="w-full pt-10 pb-8  bg-mainbg">
+      <div className=" max-w-[1330px] m-auto pt-[32px] px-6 bg-white ">
+        <div className=" mt-[47px] flex justify-between items-start gap-6 ">
+          <FilterResult />
+          {/* <div className=" flex items-center gap-[4px] "> */}
+          {/* <p className=" mb-[18px] text-black text-[14px] leading-5 font-Rubik font-normal ">View by</p> */}
+          <div className="w-auto  grid_list_cards">
+            <Tabs defaultActiveKey="grid" id="uncontrolled-tab-example">
+              <Tab eventKey="grid" title={<img src={Grid} alt="icon" />}>
+                <div className=" max-w-[1011px] border border-borderColor mt-[18px]  mb-[12px] "></div>
+                <GridCard MyC2Es={MyC2Es} />
+              </Tab>
+              <Tab eventKey="list" title={<img src={List} alt="icon" />}>
+                <div className=" max-w-[1011px] border border-borderColor my-[16px] "></div>
+                <ListCard MyC2Es={MyC2Es} />
+              </Tab>
+            </Tabs>
+          </div>
+          {/* </div> */}
+        </div>
       </div>
-      {/* <div className=" flex items-center gap-[4px] "> */}
-      {/* <p className=" mb-[18px] text-black text-[14px] leading-5 font-Rubik font-normal ">view by</p> */}
-      <div className=" grid_list_cards w-[70%]">
-        <Tabs defaultActiveKey="grid" id="uncontrolled-tab-example">
-          <Tab eventKey="grid" title={<img src={Grid} alt="icon" />}>
-            <GridCard />
-          </Tab>
-          <Tab eventKey="list" title={<img src={List} alt="icon" />}>
-            <ListCard />
-          </Tab>
-        </Tabs>
-      </div>
-      {/* </div> */}
     </div>
   );
 };

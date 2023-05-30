@@ -197,6 +197,7 @@ ul.nav.nav-tabs {
 
 .grid_list_cards {
   ul.nav.nav-tabs {
+    width: auto;
     justify-content: end;
     gap: 0;
     margin-bottom: 16px;
@@ -213,3 +214,17 @@ ul.nav.nav-tabs {
     // width: 100%;
   }
 }
+
+// Navbar dropdown
+// .navbar_dropdown {
+//   .dropdown {
+//     .dropdown-toggle {
+//       background: transparent;
+//       border: none;
+//       padding: 0;
+//       &::after {
+//         display: none;
+//       }
+//     }
+//   }
+// }

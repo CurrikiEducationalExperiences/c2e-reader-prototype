@@ -1,50 +1,24 @@
 import React from "react";
 
-import ProductCard from "../../../utils/productCard1";
-
-const GridCard = () => {
+const GridCard = ({ MyC2Es }) => {
   return (
-    <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-[120px] mb-[39px] pl-[25px]">
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
-      <ProductCard
-        ProductCardTitle1="Lorem Ipsum"
-        ProductCardPrice1="$26"
-        ProductCardDescription1="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy text ever since the 1500s tex..."
-      />
+    <div className=" max-w-[1030px] w-full grid grid-cols-4 gap-4 mt-[37px] mb-[39px] ">
+      {MyC2Es?.map((item, index) => (
+        <div key={index} className=" min-h-[309px]">
+          <div className=" top-[50px] left-[17px] relative">
+            <img src={item.img} alt="Product Card Image" />
+          </div>
+          <div className=" pr-4 pl-4 w-[239px] border-[1px] border-solid border-borderColor hover:border-borderGray rounded-[10px] hover:rounded-[10px] hover:bg-blueHighlight shadow-hovershadow   ">
+            <div className="pt-[57px] mb-2">
+              <div className="flex justify-between mb-3 align-baseline">
+                <h2 className="mb-0 text-sm font-normal font-OpenSans hover:text-primarycolor2">{item.title}</h2>
+                <p className="mb-0 font-Rubik">{item.price}</p>
+              </div>
+              <p className="text-sm font-OpenSans text-gray100 ">{item.text}</p>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

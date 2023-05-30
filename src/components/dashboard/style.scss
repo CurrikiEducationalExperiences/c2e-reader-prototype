@@ -1,4 +1,4 @@
-// downarrown dropdown menu styles
+// downarrow dropdown menu styles
 .dropdown_menu {
   // width: 100%;
   .dropdown-menu.show {
@@ -38,14 +38,13 @@
   }
 }
 
-// slider styles
-
-// .dashboard_slider {
-//   .slick-slide {
-//     width: 302px;
-//   }
-// }
 .slick-slider {
+  .slick-slide {
+    > div {
+      width: 302px;
+      margin: 0 auto;
+    }
+  }
   button.slick-arrow.slick-prev {
     // background: #084892;
     margin: 0 5px;
