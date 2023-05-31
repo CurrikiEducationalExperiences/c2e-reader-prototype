@@ -31,14 +31,16 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@main
-
-    # Add steps here like linting, testing, minification, etc.
+    
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    
       
     - name: Deploy
       run: |
         # Deploy
-        curl -sL https://deb.nodesource.com/setup_16.x | bash - 
-        apt-get install -y nodejs
         node -v
         npm install
         npm run build
