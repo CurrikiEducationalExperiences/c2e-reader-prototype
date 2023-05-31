@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import Alert from "react-bootstrap/Alert";
+import config from '../../config/api.json';
 
 import DataTable from "react-data-table-component";
 
 import More from "../../assets/images/more.svg";
 import FilterResult from "./filterResult";
 
-const Marketplace = ({ MarketDataList }) => {
+const Marketplace = () => {
+  const [listings, setListings] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(`${config.apiBaseUrl}/c2e/marketplace?userId=1`)
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+
+        return res.json();
+      })
+      .then(items => setListings(items.activeList))
+      .catch((e) => {
+        const error = 'Could not get C2E listing';
+        setError(error);
+        console.log(error, e);
+      });
+  }, []);
   return (
     <div className=" w-full bg-mainbg pb-[32px] md:pb-[70px] pl-[167px]">
       <div className=" w-full m-auto pt-[32px] px-6 bg-white ">
@@ -15,8 +34,9 @@ const Marketplace = ({ MarketDataList }) => {
             <FilterResult />
 
             <div className="w-full ">
+              {error && <Alert variant='warning'>{error}</Alert>}
               <DataTable
-                data={MarketDataList}
+                data={listings}
                 className=" overflow-x-auto "
                 columns={[
                   {

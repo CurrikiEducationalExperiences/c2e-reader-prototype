@@ -6,12 +6,10 @@ import Dashboard from '../src/components/dashboard/dashboardSettings';
 import MyC2ES from '../src/components/dashboard/myc2e';
 import MyMarketplace from '../src/components/dashboard/marketplace';
 import Builder from '../src/pages/builder';
-import { dashboard, MyC2Es, MarketDataList } from '../src/data/dummyData';
 // import { ThreeDots } from 'react-loader-spinner';
 
 const App = () => {
   const [loading, setLoading] = useState('loading');
-  const dashboardData = dashboard?.map((item) => item);
 
   useEffect(() => {
     if (loading) {
@@ -44,12 +42,12 @@ const App = () => {
           <Routes>
             <Route
               path="/"
-              element={<Dashboard dashboardData={dashboardData} />}
+              element={<Dashboard />}
             />
-            <Route path="/my-c2e" element={<MyC2ES MyC2Es={MyC2Es} />} />
+            <Route path="/my-c2e" element={<MyC2ES />} />
             <Route
               path="/my-marketplace"
-              element={<MyMarketplace MarketDataList={MarketDataList} />}
+              element={<MyMarketplace />}
             />
             <Route path="/builder" element={<Builder />} />
           </Routes>
