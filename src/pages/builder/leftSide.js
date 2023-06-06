@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tab, Tabs, Dropdown, Accordion } from 'react-bootstrap';
 
 import SearchIcon from '../../assets/images/search.svg';
@@ -8,8 +8,10 @@ import EyeIcon from '../../assets/images/mdi_eye.svg';
 import PlusIcon from '../../assets/images/Icon-plus.svg';
 
 const LeftSide = () => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <div className="min-w-[321px] flex-shrink-0 bg-white calc-function">
+    <div className="w-[321px] flex-shrink-0 bg-white calc-function">
       {/* <div className="w-full bg-primarycolor2 p-2">
         <p className="font-medium text-2xl leading-[28px] text-white m-0">
           C2E Builder
@@ -47,7 +49,7 @@ const LeftSide = () => {
             <Tab eventKey="Projects" title="Projects">
               <div className="w-full flex-col gap-4">
                 <div className="w-full">
-                  <div className="w-full relative mb-2">
+                  <div className="w-full relative mb-[16px]">
                     <div className="w-full flex items-center gap-2 ">
                       <img
                         src={projectImg}
@@ -58,7 +60,7 @@ const LeftSide = () => {
                         <h5 className="font-medium text-sm text-primarycolor2 m-0">
                           Project 1
                         </h5>
-                        <p className="font-normal text-[10px] leading-[14px] text-gray100 m-0">
+                        <p className="font-normal text-xs text-gray100 m-0">
                           Activity Description
                         </p>
                       </div>
@@ -99,8 +101,11 @@ const LeftSide = () => {
                         </Dropdown>
                       </div>
                     </div>
-                    <div className="absolute bottom-0 right-0 w-fit ">
-                      <button className="flex items-center gap-1  border-none rounded bg-[#F7FAFF] p-1 shadow-boxShadowSm">
+                    <div className="absolute bottom-[-10px] right-0 w-fit ">
+                      <button
+                        onClick={() => setExpanded(expanded ? false : true)}
+                        className="flex items-center gap-1  border-none rounded bg-[#F7FAFF] p-1 shadow-boxShadowSm"
+                      >
                         <img src={PlusIcon} alt="PlusIcon" className="" />
                         <p className="font-normal text-xs text-primarycolor2 m-0">
                           Expand
@@ -109,22 +114,46 @@ const LeftSide = () => {
                     </div>
                   </div>
 
-                  <div className="builder_accordion">
-                    <Accordion defaultActiveKey="0" flush>
-                      <Accordion.Item eventKey="0">
-                        <Accordion.Header>Playlist 1</Accordion.Header>
-                        <Accordion.Body>Activity 1</Accordion.Body>
-                      </Accordion.Item>
-                      <Accordion.Item eventKey="1">
-                        <Accordion.Header>Playlist 2</Accordion.Header>
-                        <Accordion.Body>Activity 1</Accordion.Body>
-                      </Accordion.Item>
-                      <Accordion.Item eventKey="2">
-                        <Accordion.Header>Playlist 3</Accordion.Header>
-                        <Accordion.Body>Activity 1</Accordion.Body>
-                      </Accordion.Item>
-                    </Accordion>
-                  </div>
+                  {expanded && (
+                    <div className="builder_accordion">
+                      <Accordion defaultActiveKey="0" flush>
+                        <Accordion.Item eventKey="0">
+                          <Accordion.Header>
+                            <p className="font-normal text-sm  text-[#95959] m-0">
+                              Playlist 1
+                            </p>
+                          </Accordion.Header>
+                          <Accordion.Body>
+                            <div className=" w-auto flex flex-col gap-2">
+                              <div className="w-full bg-white border-[0.5px] border-solid border-[#959595] shadow-boxShadowMd p-2 rounded font-normal text-sm  text-[#95959]">
+                                Activity 1
+                              </div>
+                              <div className="w-full bg-white border-[0.5px] border-solid border-[#959595] shadow-boxShadowMd p-2 rounded font-normal text-sm  text-[#95959]">
+                                Activity 2
+                              </div>
+                            </div>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="1">
+                          <Accordion.Header>
+                            <p className="font-normal text-sm  text-[#95959] m-0">
+                              Playlist 2
+                            </p>
+                          </Accordion.Header>
+                          <Accordion.Body>
+                            <div className="flex flex-col gap-2">
+                              <div className="w-[296px] bg-white border-[0.5px] border-solid border-[#959595] shadow-boxShadowMd p-2 rounded font-normal text-sm  text-[#95959]">
+                                Activity 1
+                              </div>
+                              <div className="w-[296px] bg-white border-[0.5px] border-solid border-[#959595] shadow-boxShadowMd p-2 rounded font-normal text-sm  text-[#95959]">
+                                Activity 2
+                              </div>
+                            </div>
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </Accordion>
+                    </div>
+                  )}
                 </div>
               </div>
             </Tab>

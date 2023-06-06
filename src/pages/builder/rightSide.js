@@ -5,11 +5,7 @@ import { Tab, Tabs } from 'react-bootstrap';
 const RightSide = () => {
   return (
     <div className="w-[300px] flex-shrink-0 bg-white ">
-      {/* <div className="w-full bg-primarycolor2 p-2">
-        <p className="font-medium text-2xl leading-[28px] text-white m-0">
-          C2E Settings
-        </p>
-      </div> */}
+      <div className="w-full h-[52px] bg-primarycolor2 mb-[5px]"></div>
       <div className="p-4 w-full">
         <div className="builder-setting-tabs ">
           <Tabs defaultActiveKey="Metadata" id="uncontrolled-tab-example">
@@ -78,13 +74,13 @@ const RightSide = () => {
                           rows="5"
                         />
 
-                        <p className="font-normal text-xs text-black mb-1">
+                        <p className="font-normal text-sm text-black mb-1">
                           Keywords
                           <span className="text-primarycolor2 underline">
                             +Add
                           </span>
                         </p>
-                        <p className="font-normal text-xs text-black mb-1">
+                        <p className="font-normal text-sm text-black mb-1">
                           c2e, e-learning, learning experience
                         </p>
                       </div>

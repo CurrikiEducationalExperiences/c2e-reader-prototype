@@ -10,13 +10,11 @@ const Workspace = () => {
   return (
     <div className="w-full bg-white h-full calc-function ">
       <div className="w-full bg-primarycolor2 px-2 py-[12px] mb-[14px]">
-        <h4 className="font-medium text-[26px] leading-[20px] text-white m-0">
-          C2E Builder
-        </h4>
+        <h4 className="font-medium text-xl text-white m-0">C2E Builder</h4>
       </div>
       <div className="w-full  h-full  p-[16px] pr-[24px]">
         <div className="flex items-center gap-[16px] justify-between mb-7">
-          <button className="w-fit h-auto border-none outline-none py-2 px-3 text-white bg-[#0CA789]  rounded  font-normal text-xs">
+          <button className="w-fit h-auto border-none outline-none py-2 px-3 text-white bg-[#0CA789]  rounded  font-normal text-sm">
             C2e-12345678
           </button>
           <div className="flex items-center gap-1">
@@ -100,12 +98,12 @@ const Workspace = () => {
                                 className="w-[32px] h-[32px] object-cover rounded-full"
                               />
                               <div className="">
-                                <h5 className="font-medium text-sm text-primarycolor2 m-0">
+                                <h5 className="font-medium text-sm text-primarycolor2 m-0 whitespace-pre">
                                   Activity 1
                                 </h5>
                               </div>
                             </div>
-                            <p className="font-normal text-[10px] leading-[14px] text-gray100 m-0 pt-2">
+                            <p className="font-normal text-sm text-gray100 m-0 pt-2">
                               Within the six categories, there are over 50
                               learning activity types. These range from
                               Interactive Video.
@@ -169,12 +167,12 @@ const Workspace = () => {
                                 className="w-[32px] h-[32px] object-cover rounded-full"
                               />
                               <div className="">
-                                <h5 className="font-medium text-sm text-primarycolor2 m-0">
+                                <h5 className="font-medium text-sm text-primarycolor2 m-0 whitespace-pre">
                                   Activity 1
                                 </h5>
                               </div>
                             </div>
-                            <p className="font-normal text-[10px] leading-[14px] text-gray100 m-0 pt-2">
+                            <p className="font-normal text-sm text-gray100 m-0 pt-2">
                               Within the six categories, there are over 50
                               learning activity types. These range from
                               Interactive Video.
