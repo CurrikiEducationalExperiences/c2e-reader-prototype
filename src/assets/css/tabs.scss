@@ -156,6 +156,74 @@
       }
     }
   }
+
+  .active_iner_accordion {
+    .accordion-item {
+      color: inherit;
+      background-color: inherit;
+      border: none !important;
+      margin-bottom: 16px;
+
+      .accordion-header {
+        min-height: 36px !important;
+        height: auto !important;
+        margin-bottom: 16px;
+        .accordion-button {
+          font-family: 'Rubik';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          text-align: left;
+          border: none !important;
+          color: #000000;
+          padding: 8px 8px 8px 32px !important;
+          background: #ffffff !important;
+          border: none !important;
+          box-shadow: inherit !important;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background-image: url('../images/b-b-arrow.svg');
+            transform: rotate(180deg);
+          }
+
+          &.collapsed {
+            color: #000000;
+            background: #ffffff !important;
+            &::before {
+              transform: rotate(0deg);
+              background-image: url('../images/b-a-arrow.svg');
+            }
+          }
+          &:focus {
+            border-color: inherit !important;
+            box-shadow: inherit !important;
+          }
+
+          &::after {
+            content: inherit !important;
+          }
+        }
+      }
+
+      .accordion-body {
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 8px;
+        line-height: 13px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        padding: 4px 0 4px 29px !important;
+      }
+    }
+  }
 }
 
 // notebook_table
@@ -344,6 +412,11 @@ ul.nav.nav-tabs {
   min-height: calc(100vh - 58px);
 }
 
+.save-btn {
+  width: 124px !important;
+  height: 40px !important;
+}
+
 .border-btn {
   background: #ffffff;
   border: 1px solid #084892;
@@ -354,7 +427,6 @@ ul.nav.nav-tabs {
   justify-content: center;
   align-items: center;
   padding: 8px 12px;
-  gap: 10px;
   width: fit-content;
   border-radius: 4px;
   font-family: 'Rubik';
@@ -383,6 +455,7 @@ ul.nav.nav-tabs {
   letter-spacing: 0.01em;
   color: #000000;
   margin-bottom: 8px;
+  outline: none !important;
 }
 .custom_label {
   font-family: 'Rubik';
@@ -398,4 +471,24 @@ ul.nav.nav-tabs {
 .border_input {
   border: 1px solid #2e68bf;
   border-radius: 4px;
+}
+.border_input_red {
+  border: 1px solid #ff403b;
+  border-radius: 4px;
+  color: #ff403b;
+}
+
+// custom-modal
+
+.custom-modal {
+  .modal-content {
+    .modal-header {
+      border: none !important;
+      padding: 32px 32px 24px !important;
+    }
+
+    .modal-body {
+      padding: 0 32px 32px !important;
+    }
+  }
 }
