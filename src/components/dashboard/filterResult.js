@@ -21,7 +21,7 @@ const FilterResult = () => {
             <div key={index} className="flex items-center gap-[6px] ">
               <img src={FIlter} alt="filter logo" />
 
-              <p className="font-normal  text-base text-black m-0">
+              <p className="font-normal text-base text-black m-0">
                 {item.filterResult} <span className="font-light text-xs">{item.total}</span>
               </p>
             </div>
@@ -36,7 +36,7 @@ const FilterResult = () => {
           <Accordion.Body>
             {name?.[0]?.resultList?.map((item, index) => (
               <div key={index} className="">
-                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
+                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[10px] laeading-[15px] font-Rubik font-medium hover:text-primarycolor ">
                   {item.name}
                   <span className=""> {item.number} </span>
                 </p>
@@ -50,7 +50,7 @@ const FilterResult = () => {
           <Accordion.Body>
             {type?.[0]?.resultList?.map((item, index) => (
               <div key={index} className="">
-                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
+                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[10px] laeading-[15px] font-Rubik font-medium hover:text-primarycolor ">
                   {item.name}
                   <span className=""> {item.number} </span>
                 </p>
@@ -63,7 +63,7 @@ const FilterResult = () => {
           <Accordion.Body>
             {License?.[0]?.resultList?.map((item, index) => (
               <div key={index} className="">
-                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
+                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[10px] laeading-[15px] font-Rubik font-medium hover:text-primarycolor ">
                   {item.name}
                   <span className=""> {item.number} </span>
                 </p>
@@ -76,7 +76,7 @@ const FilterResult = () => {
           <Accordion.Body>
             {contract?.[0]?.resultList?.map((item, index) => (
               <div key={index} className="">
-                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[8px] laeading-[15px] font-Rubik font-normal hover:text-primarycolor ">
+                <p className=" mb-2 cursor-pointer flex items-center justify-between text-gray100 text-[10px] laeading-[15px] font-Rubik font-medium hover:text-primarycolor ">
                   {item.name}
                   <span className=""> {item.number} </span>
                 </p>
