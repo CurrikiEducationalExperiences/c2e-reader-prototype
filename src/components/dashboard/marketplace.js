@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import Alert from "react-bootstrap/Alert";
-import config from '../../config/api.json';
+import config from "../../config/api.json";
 
 import DataTable from "react-data-table-component";
 
@@ -18,15 +18,15 @@ const Marketplace = () => {
 
         return res.json();
       })
-      .then(items => setListings(items.activeList))
+      .then((items) => setListings(items.activeList))
       .catch((e) => {
-        const error = 'Could not get C2E listing';
+        const error = "Could not get C2E listing";
         setError(error);
         console.log(error, e);
       });
   }, []);
   return (
-    <div className=" w-full bg-mainbg pb-[32px] md:pb-[70px] pl-[167px]">
+    <div className=" w-full bg-mainbg pb-[32px] md:pb-[70px] pl-[100px] lg:pl-[167px]">
       <div className=" w-full m-auto pt-[32px] px-6 bg-white ">
         <div className=" pb-[42px]">
           <h3 className=" font-medium text-sm text-[#084892] w-full pb-[18px] border-b-[1px] border-solid border-b-[#DDDDDD] mb-[23px]">MARKETPLACE LISTINGS</h3>
@@ -34,7 +34,7 @@ const Marketplace = () => {
             <FilterResult />
 
             <div className="w-full ">
-              {error && <Alert variant='warning'>{error}</Alert>}
+              {error && <Alert variant="warning">{error}</Alert>}
               <DataTable
                 data={listings}
                 className=" overflow-x-auto "

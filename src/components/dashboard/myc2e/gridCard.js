@@ -12,8 +12,8 @@ const GridCard = ({ MyC2Es }) => {
             <img src={item.img} alt="Product Card Image " className="w-[97px] h-[104px] rounded-[4px] object-cover " />
           </div>
 
-          <div className=" pr-4 pl-4 w-full border-[1px] border-solid border-borderColor hover:border-borderGray rounded-[10px] hover:rounded-[10px] hover:bg-blueHighlight shadow-hovershadow   ">
-            <div className="pt-[57px] mb-2">
+          <div className="h-[270px] pr-4 pl-4 pb-2 w-full border-[1px] border-solid border-borderColor hover:border-borderGray rounded-[10px] hover:rounded-[10px] hover:bg-blueHighlight shadow-hovershadow ">
+            <div className="pt-[57px] ">
               <div className="relative top-[-40px]">
                 <div className="custom_dropdown">
                   <Dropdown>
@@ -33,7 +33,7 @@ const GridCard = ({ MyC2Es }) => {
                 <h2 className="mb-0 text-sm font-normal font-OpenSans hover:text-primarycolor2">{item.title}</h2>
                 <p className="mb-0 font-Rubik">{item.price}</p>
               </div>
-              <p className="text-sm font-OpenSans text-gray100 ">{item.text}</p>
+              <p className={`"text-sm font-OpenSans text-gray100" `}>{item.text.length > 90 ? `${item.text.slice(0, 105)}...` : item.text}</p>
             </div>
           </div>
         </div>

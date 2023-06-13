@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'; 
-import config from '../../../config/api.json';
+import React, { useEffect, useState } from "react";
+import config from "../../../config/api.json";
 import Alert from "react-bootstrap/Alert";
 
 import Tab from "react-bootstrap/Tab";
@@ -23,16 +23,16 @@ const Index = () => {
 
         return res.json();
       })
-      .then(items => setC2es(items.listing))
+      .then((items) => setC2es(items.listing))
       .catch((e) => {
-        const error = 'Could not get C2E listing';
+        const error = "Could not get C2E listing";
         setError(error);
         console.log(error, e);
       });
   }, []);
 
   return (
-    <div className="w-full pb-8 bg-mainbg pl-[167px]">
+    <div className="w-full pb-8 bg-mainbg pl-[100px] lg:pl-[167px]">
       <div className=" max-w-[1440px] m-auto pt-[32px] px-6 bg-white ">
         <div className=" flex flex-col lg:flex-row justify-between items-start gap-6 ">
           <FilterResult />
@@ -42,12 +42,12 @@ const Index = () => {
             <Tabs defaultActiveKey="grid" id="uncontrolled-tab-example">
               <Tab eventKey="grid" title={<img src={Grid} alt="icon" />}>
                 <div className=" max-w-[1011px] border border-borderColor mt-[18px]  mb-[12px] "></div>
-                {error && <Alert variant='warning'>{error}</Alert>}
+                {error && <Alert variant="warning">{error}</Alert>}
                 <GridCard MyC2Es={c2es} />
               </Tab>
               <Tab eventKey="list" title={<img src={List} alt="icon" />}>
                 <div className=" max-w-[1011px] border border-borderColor my-[16px] "></div>
-                {error && <Alert variant='warning'>{error}</Alert>}
+                {error && <Alert variant="warning">{error}</Alert>}
                 <ListCard MyC2Es={c2es} />
               </Tab>
             </Tabs>
