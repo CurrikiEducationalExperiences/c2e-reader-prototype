@@ -17,13 +17,6 @@ const Workspace = ({ setOpenRoyalties }) => {
       <div className="w-full  h-full  p-[16px] pr-[24px]">
 
 
-        <div className="w-full h-auto p-[12px]  border border-solid border-[#aaaaaa] shadow-boxShadowMd mb-[16px]">
-          <p className="mb-1 text-sm font-normal text-black">Activity 1</p>
-          <p className="mb-1 text-xs font-semibold text-black">Uploading</p>
-          <div className="w-full">
-            <ProgressBar striped now={45} label="45%" />
-          </div>
-        </div>
 
         <div className="builder_accordion">
           <Accordion defaultActiveKey="0" flush>
@@ -33,7 +26,7 @@ const Workspace = ({ setOpenRoyalties }) => {
                   <p className="m-0 text-sm font-medium text-black ">Project 1</p>
 
                   <div className="custom_c2e_dropdown">
-                    <Dropdown>
+                    {/* <Dropdown>
                       <Dropdown.Toggle variant="" id="dropdown-basic">
                         <img src={More} alt="jjk" className="w-5 h-5" />
                       </Dropdown.Toggle>
@@ -52,7 +45,7 @@ const Workspace = ({ setOpenRoyalties }) => {
                           </div>
                         </Dropdown.Item>
                       </Dropdown.Menu>
-                    </Dropdown>
+                    </Dropdown> */}
                   </div>
                 </div>
               </Accordion.Header>
@@ -62,7 +55,7 @@ const Workspace = ({ setOpenRoyalties }) => {
                     <Accordion.Header>
                       <div className="flex items-center justify-between w-full ">
                         <p className="m-0 text-sm font-medium text-black ">Playlist 1</p>
-
+{/*
                         <div className="custom_c2e_dropdown">
                           <Dropdown>
                             <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -84,7 +77,7 @@ const Workspace = ({ setOpenRoyalties }) => {
                               </Dropdown.Item>
                             </Dropdown.Menu>
                           </Dropdown>
-                        </div>
+                        </div> */}
                       </div>
                     </Accordion.Header>
                     <Accordion.Body>
@@ -105,7 +98,7 @@ const Workspace = ({ setOpenRoyalties }) => {
                                   </p>
                                 </div>
 
-                                <div className="absolute top-0 right-0">
+                                {/* <div className="absolute top-0 right-0">
                                   <div className="custom_c2e_dropdown">
                                     <Dropdown>
                                       <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -128,7 +121,7 @@ const Workspace = ({ setOpenRoyalties }) => {
                                       </Dropdown.Menu>
                                     </Dropdown>
                                   </div>
-                                </div>
+                                </div> */}
                               </div>
                             </div>
                           </Accordion.Header>
