@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Tab, Tabs, Dropdown, Accordion, Form, Alert } from 'react-bootstrap';
 
 import SearchIcon from '../../assets/images/search.svg';
@@ -17,6 +17,8 @@ const LeftSide = () => {
   const [activities, setActivities] = useState([]);
   const [query, setQuery] = useState('');
   const [sourcesError, setSourcesError] = useState(null);
+
+  const activeref = useRef(null);
 
   useEffect(() => {
     fetch(`${config.apiBaseUrl}/c2e/builder/sources?userId=1`)
@@ -55,9 +57,10 @@ const LeftSide = () => {
       });
   };
 
+  console.log('redf', activeref);
+
   return (
     <div className="m-[20px] shadow-mainshadow w-full md:w-[auto] laptop:w-[400px] h-full calc-function flex-shrink-0 bg-white">
-
       <div className="w-full p-4">
         <div className="w-full mb-[24px]">
           <p className="mb-1 text-sm font-normal text-primarycolor">Source</p>
@@ -108,7 +111,7 @@ const LeftSide = () => {
                     </button>
                   </div>
                   <div className="w-full">
-                    <div className="relative w-full">
+                    <div className="relative w-full ">
                       <div className="flex flex-col items-start w-full gap-2 pb-6 sm:flex-row sm:items-center sm:pb-0 ">
                         <img
                           src={project.thumb_url}
@@ -165,16 +168,21 @@ const LeftSide = () => {
                     </div>
 
                     {expanded === project.id && (
-                      <div className="builder_accordion">
+                      <div className="builder_accordion mt-3">
                         {project.playlists.length === 0 && (
                           <Alert variant="info">No playlists found.</Alert>
                         )}
                         {project.playlists.map((playlist) => (
                           <Accordion defaultActiveKey="0" flush>
-                            <Accordion.Item eventKey={playlist.id}>
+                            <Accordion.Item
+                              ref={activeref}
+                              eventKey={playlist.id}
+                            >
                               <Accordion.Header>
                                 <p className="font-normal text-sm  text-[#95959] m-0">
-                                  {playlist.title}
+                                  {playlist.title.length > 36
+                                    ? `${playlist.title.slice(0, 36)}...`
+                                    : playlist.title}
                                 </p>
                               </Accordion.Header>
                               <Accordion.Body>
