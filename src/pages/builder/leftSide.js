@@ -9,7 +9,7 @@ import PlusIcon from '../../assets/images/Icon-plus.svg';
 import config from '../../config/api.json';
 import DownArrow from '../../assets/images/down-arrow.svg';
 
-const LeftSide = () => {
+const LeftSide = ({uploadC2E}) => {
   const [expanded, setExpanded] = useState(false);
   const [sources, setSources] = useState([]);
   const [selectedSource, setSelectedSource] = useState(null);
@@ -146,7 +146,9 @@ const LeftSide = () => {
                                   </p>
                                 </div>
                               </Dropdown.Item>
-                              <Dropdown.Item>
+                              <Dropdown.Item
+                              onClick={()=>{uploadC2E()}}
+                              >
                                 <div className="flex items-center w-full gap-1">
                                   <img
                                     src={PlusIcon}
