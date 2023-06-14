@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import LeftSide from './leftSide';
 import RightSide from './rightSide';
 import Workspace from './workspace';
@@ -13,12 +13,49 @@ const Index = () => {
         <LicenseC2E />
       ) : (
         <>
-          {/* left side box */}
-          <LeftSide />
-          {/* workspace */}
           <div className="flex flex-col items-start w-full bg-white laptop:flex-row calc-function">
-            <Workspace setOpenRoyalties={setOpenRoyalties} />
-            <RightSide />
+            <LeftSide />
+            <div className="pt-[20px] pr-[20px]">
+              <div className="flex justify-between">
+                <div>
+                  <h1 className=" flex items-center gap-[10px] m-[0] text-primarycolor bolder text-[28px]">
+                    C2E Builder
+                    <button className="w-fit h-auto border-none outline-none py-2 px-3 text-white bg-[#0CA789]  rounded  font-normal text-sm">
+                      C2e-12345678
+                    </button>
+                  </h1>
+                  <p>Create your new C2Es here.</p>
+                </div>
+                <div className="flex gap-[10px]">
+                  <Link className="no-underline" to="/builder">
+                    <button className=" mb-[15px] w-[150px] h-[40px] flex items-center justify-center rounded-[20px] bg-[#f5bf39]  text-[white] bold">
+                      License Settings
+                    </button>
+                  </Link>
+                  <Link className="no-underline" to="/builder">
+                    <button className=" mb-[15px] w-[150px] h-[40px] flex items-center justify-center rounded-[20px] bg-[#fff] border solid border-[blue]  text-primary-color bold">
+                      Preview C2E
+                    </button>
+                  </Link>
+
+                  <Link className="no-underline" to="/builder">
+                    <button className=" mb-[15px] w-[150px] h-[40px] flex items-center justify-center rounded-[20px] bg-primary  text-[white] bold">
+                      Save C2E
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div className="flex">
+                <Workspace setOpenRoyalties={setOpenRoyalties} />
+              </div>
+              <div className="h-full bg-[#fff] p-[20px] fixed top-[0] right-[0] shadow-mainshadow">
+                <h1 className=" flex items-center gap-[10px] m-[0] text-primarycolor bolder text-[28px]">
+                  C2E Settings
+                </h1>
+                <p>Manage your C2Es setting here.</p>
+                <RightSide />
+              </div>
+            </div>
           </div>
         </>
       )}
