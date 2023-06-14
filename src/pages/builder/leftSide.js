@@ -9,7 +9,7 @@ import PlusIcon from '../../assets/images/Icon-plus.svg';
 import config from '../../config/api.json';
 import DownArrow from '../../assets/images/down-arrow.svg';
 
-const LeftSide = ({uploadC2E}) => {
+const LeftSide = ({ uploadC2E }) => {
   const [expanded, setExpanded] = useState(false);
   const [sources, setSources] = useState([]);
   const [selectedSource, setSelectedSource] = useState(null);
@@ -17,6 +17,7 @@ const LeftSide = ({uploadC2E}) => {
   const [activities, setActivities] = useState([]);
   const [query, setQuery] = useState('');
   const [sourcesError, setSourcesError] = useState(null);
+  const [activeTab, setActiveTab] = useState();
 
   const activeref = useRef(null);
 
@@ -57,7 +58,10 @@ const LeftSide = ({uploadC2E}) => {
       });
   };
 
-  console.log('redf', activeref);
+  useEffect(() => {
+    console.log('redf', activeref.current?.ariaExpanded);
+    setActiveTab(activeref?.current?.ariaExpanded);
+  }, []);
 
   return (
     <div className="m-[20px] shadow-mainshadow w-full md:w-[auto] laptop:w-[400px] h-full calc-function flex-shrink-0 bg-white">
@@ -150,7 +154,9 @@ const LeftSide = ({uploadC2E}) => {
                                 </div>
                               </Dropdown.Item>
                               <Dropdown.Item
-                              onClick={()=>{uploadC2E()}}
+                                onClick={() => {
+                                  uploadC2E();
+                                }}
                               >
                                 <div className="flex items-center w-full gap-1">
                                   <img
@@ -176,16 +182,58 @@ const LeftSide = ({uploadC2E}) => {
                         )}
                         {project.playlists.map((playlist) => (
                           <Accordion defaultActiveKey="0" flush>
-                            <Accordion.Item
-                              ref={activeref}
-                              eventKey={playlist.id}
-                            >
-                              <Accordion.Header>
-                                <p className="font-normal text-sm  text-[#95959] m-0">
-                                  {playlist.title.length > 36
-                                    ? `${playlist.title.slice(0, 36)}...`
-                                    : playlist.title}
-                                </p>
+                            <Accordion.Item eventKey={playlist.id}>
+                              <Accordion.Header ref={activeref}>
+                                <div className="w-full flex items-start justify-between">
+                                  <p className="font-normal text-sm  text-[#95959] m-0">
+                                    {playlist.title}
+                                  </p>
+                                  <div className="custom_dropdown flex-shrink-0">
+                                    <Dropdown>
+                                      <Dropdown.Toggle
+                                        variant=""
+                                        id="dropdown-basic"
+                                      >
+                                        <img
+                                          src={More}
+                                          alt="jjk"
+                                          className="w-5 h-5"
+                                        />
+                                      </Dropdown.Toggle>
+
+                                      <Dropdown.Menu>
+                                        <Dropdown.Item>
+                                          <div className="flex items-center w-full gap-1">
+                                            <img
+                                              src={EyeIcon}
+                                              alt="EyeIcon"
+                                              className="w-auto h-auto "
+                                            />
+                                            <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                              Preview
+                                            </p>
+                                          </div>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item
+                                          onClick={() => {
+                                            uploadC2E();
+                                          }}
+                                        >
+                                          <div className="flex items-center w-full gap-1">
+                                            <img
+                                              src={PlusIcon}
+                                              alt="EyeIcon"
+                                              className="w-auto h-auto"
+                                            />
+                                            <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                              Add
+                                            </p>
+                                          </div>
+                                        </Dropdown.Item>
+                                      </Dropdown.Menu>
+                                    </Dropdown>
+                                  </div>
+                                </div>
                               </Accordion.Header>
                               <Accordion.Body>
                                 <div className="flex flex-col w-auto gap-2 ">
@@ -196,7 +244,56 @@ const LeftSide = ({uploadC2E}) => {
                                   )}
                                   {playlist.activities.map((activity) => (
                                     <div className="w-full bg-white border-[0.5px] border-solid border-[#959595] shadow-boxShadowMd p-2 rounded font-normal text-sm  text-[#95959]">
-                                      {activity.title}
+                                      <div className="w-full flex items-start justify-between">
+                                        <p className="font-normal text-sm  text-[#95959] m-0">
+                                          {activity.title}
+                                        </p>
+                                        <div className="custom_dropdown flex-shrink-0">
+                                          <Dropdown>
+                                            <Dropdown.Toggle
+                                              variant=""
+                                              id="dropdown-basic"
+                                            >
+                                              <img
+                                                src={More}
+                                                alt="jjk"
+                                                className="w-5 h-5"
+                                              />
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu>
+                                              <Dropdown.Item>
+                                                <div className="flex items-center w-full gap-1">
+                                                  <img
+                                                    src={EyeIcon}
+                                                    alt="EyeIcon"
+                                                    className="w-auto h-auto "
+                                                  />
+                                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                                    Preview
+                                                  </p>
+                                                </div>
+                                              </Dropdown.Item>
+                                              <Dropdown.Item
+                                                onClick={() => {
+                                                  uploadC2E();
+                                                }}
+                                              >
+                                                <div className="flex items-center w-full gap-1">
+                                                  <img
+                                                    src={PlusIcon}
+                                                    alt="EyeIcon"
+                                                    className="w-auto h-auto"
+                                                  />
+                                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                                    Add
+                                                  </p>
+                                                </div>
+                                              </Dropdown.Item>
+                                            </Dropdown.Menu>
+                                          </Dropdown>
+                                        </div>
+                                      </div>
                                     </div>
                                   ))}
                                 </div>
