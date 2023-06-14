@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 import More from '../../../assets/images/more.svg';
@@ -13,7 +14,7 @@ const GridCard = ({ MyC2Es }) => {
         >
           <div className=" top-[50px] left-[17px] relative ">
             <img
-              src={item.img}
+              src={item.general.thumb_url}
               alt="Product Card Image "
               className="w-[97px] h-[104px] rounded-[4px] object-cover "
             />
@@ -29,10 +30,18 @@ const GridCard = ({ MyC2Es }) => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Create</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Listing</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Preview</Dropdown.Item>
+                      <Dropdown.Item href={`/builder?c2eid=${item.general.id}`}>
+                        Edit
+                      </Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">
+                        Create Listing
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        href="#/action-3"
+                        onClick={() => window.open(item.general.sharedLink)}
+                      >
+                        Preview
+                      </Dropdown.Item>
                       <Dropdown.Item href="#/action-3">Delete</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -40,14 +49,12 @@ const GridCard = ({ MyC2Es }) => {
               </div>
               <div className="flex justify-between mb-3 align-baseline">
                 <h2 className="mb-0 text-sm font-normal font-OpenSans hover:text-primarycolor2">
-                  {item.title}
+                  {item.general.title}
                 </h2>
-                <p className="mb-0 font-Rubik">{item.price}</p>
+                <p className="mb-0 font-Rubik">${item.general.price}</p>
               </div>
               <p className="text-sm font-OpenSans text-gray100 ">
-                {item.text.length > 150
-                  ? `${item.text?.split(' ').slice(0, 30).join(' ')}...`
-                  : item.text}
+                {item.general.description?.split(' ').slice(0, 30).join(' ')}
               </p>
             </div>
           </div>

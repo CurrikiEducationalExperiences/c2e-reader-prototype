@@ -23,13 +23,13 @@ const TopSettings = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${config.apiBaseUrl}/wallet/sales?userId=1`)
+    fetch(`${config.apiBaseUrl}/c2e/products`)
       .then((res) => {
         if (!res.ok) throw new Error(res.status);
 
         return res.json();
       })
-      .then(items => setC2es(items.sales))
+      .then(data => setC2es(data.projects))
       .catch((e) => {
         const error = 'Could not get top C2Es';
         setError(error);
@@ -50,12 +50,12 @@ const TopSettings = () => {
             >
               <div className=" w-full h-[156px] flex items-end ">
                 <h3 className=" text-lg leading-6 font-Rubik font-medium text-white m-0 relative z-[2] ">
-                  {item.text}
+                  {item.general.title}
                 </h3>
               </div>
               <img
-                src={item.thumbnail}
-                alt={item.text}
+                src={item.general.thumb_url}
+                alt={item.general.title}
                 className=" w-full max-w-[302px] h-full z-[1] absolute top-0 right-0 left-0 rounded-lg "
               />
             </div>

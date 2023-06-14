@@ -41,7 +41,7 @@ const LeftSide = ({ uploadC2E }) => {
   const doContentSearch = (query) => {
     if (selectedSource === null) return;
 
-    fetch(`${config.apiBaseUrl}/c2e/builder/search?userId=1&query=${query}`)
+    fetch(`${config.apiBaseUrl}/c2e/products?userId=1&query=${query}`)
       .then((res) => {
         if (!res.ok) throw new Error(res.status);
 
@@ -49,7 +49,7 @@ const LeftSide = ({ uploadC2E }) => {
       })
       .then((response) => {
         setProjects(response.projects);
-        setActivities(response.activities);
+        setActivities([]);
       })
       .catch((e) => {
         const error = 'Error fetching content search results';
@@ -102,14 +102,18 @@ const LeftSide = ({ uploadC2E }) => {
                 <div className="flex w-full gap-2 items-baseline mb-[15px]">
                   <div className="">
                     <button
-                      onClick={() => setExpanded(expanded ? false : project.id)}
-                      className="relative top-[-23px] left-0"
+                      onClick={() =>
+                        setExpanded(expanded ? false : project.general.id)
+                      }
+                      className="relative left-0 top-[-23px]"
                     >
                       <img
                         src={DownArrow}
                         alt="PlusIcon"
-                        className={`w-6 h-6 transition duration-700 ease-in-out  ${
-                          expanded === project.id ? 'rotate-180' : 'rotate-0'
+                        className={`w-5 h-5 transition duration-700 ease-in-out delay-150 ${
+                          expanded === project.general.id
+                            ? 'rotate-180'
+                            : 'rotate-0'
                         }`}
                       />
                     </button>
@@ -118,18 +122,19 @@ const LeftSide = ({ uploadC2E }) => {
                     <div className="relative w-full ">
                       <div className="flex flex-col items-start w-full gap-2 pb-6 sm:flex-row sm:items-center sm:pb-0 ">
                         <img
-                          src={project.thumb_url}
+                          src={project.general.thumb_url}
                           alt="projectImg"
                           className="w-[96px] h-[74px] object-cover rounded"
                         />
                         <div className="">
                           <h5 className="m-0 text-sm font-medium text-primarycolor2">
-                            {project.name}
+                            {project.general.title}
                           </h5>
                           <p className="m-0 pb-[10px] text-xs font-normal text-gray100 ">
-                            {expanded !== project.id &&
-                              `${project.description.slice(0, 32)}...`}
-                            {expanded === project.id && project.description}
+                            {expanded !== project.general.id &&
+                              `${project.general.description.slice(0, 32)}...`}
+                            {expanded === project.general.id &&
+                              project.general.description}
                           </p>
                         </div>
                       </div>
@@ -141,7 +146,11 @@ const LeftSide = ({ uploadC2E }) => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                              <Dropdown.Item>
+                              <Dropdown.Item
+                                onClick={() =>
+                                  window.open(project.general.sharedLink)
+                                }
+                              >
                                 <div className="flex items-center w-full gap-1">
                                   <img
                                     src={EyeIcon}
@@ -155,7 +164,7 @@ const LeftSide = ({ uploadC2E }) => {
                               </Dropdown.Item>
                               <Dropdown.Item
                                 onClick={() => {
-                                  uploadC2E();
+                                  uploadC2E(project);
                                 }}
                               >
                                 <div className="flex items-center w-full gap-1">
@@ -175,7 +184,7 @@ const LeftSide = ({ uploadC2E }) => {
                       </div>
                     </div>
 
-                    {expanded === project.id && (
+                    {expanded === project.general.id && (
                       <div className="builder_accordion mt-3">
                         {project.playlists.length === 0 && (
                           <Alert variant="info">No playlists found.</Alert>
@@ -188,51 +197,7 @@ const LeftSide = ({ uploadC2E }) => {
                                   <p className="font-normal text-sm  text-[#95959] m-0">
                                     {playlist.title}
                                   </p>
-                                  <div className="custom_dropdown flex-shrink-0">
-                                    <Dropdown>
-                                      <Dropdown.Toggle
-                                        variant=""
-                                        id="dropdown-basic"
-                                      >
-                                        <img
-                                          src={More}
-                                          alt="jjk"
-                                          className="w-5 h-5"
-                                        />
-                                      </Dropdown.Toggle>
-
-                                      <Dropdown.Menu>
-                                        <Dropdown.Item>
-                                          <div className="flex items-center w-full gap-1">
-                                            <img
-                                              src={EyeIcon}
-                                              alt="EyeIcon"
-                                              className="w-auto h-auto "
-                                            />
-                                            <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                              Preview
-                                            </p>
-                                          </div>
-                                        </Dropdown.Item>
-                                        <Dropdown.Item
-                                          onClick={() => {
-                                            uploadC2E();
-                                          }}
-                                        >
-                                          <div className="flex items-center w-full gap-1">
-                                            <img
-                                              src={PlusIcon}
-                                              alt="EyeIcon"
-                                              className="w-auto h-auto"
-                                            />
-                                            <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                              Add
-                                            </p>
-                                          </div>
-                                        </Dropdown.Item>
-                                      </Dropdown.Menu>
-                                    </Dropdown>
-                                  </div>
+                                  <div className="custom_dropdown flex-shrink-0"></div>
                                 </div>
                               </Accordion.Header>
                               <Accordion.Body>
@@ -248,51 +213,7 @@ const LeftSide = ({ uploadC2E }) => {
                                         <p className="font-normal text-sm  text-[#95959] m-0">
                                           {activity.title}
                                         </p>
-                                        <div className="custom_dropdown flex-shrink-0">
-                                          <Dropdown>
-                                            <Dropdown.Toggle
-                                              variant=""
-                                              id="dropdown-basic"
-                                            >
-                                              <img
-                                                src={More}
-                                                alt="jjk"
-                                                className="w-5 h-5"
-                                              />
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu>
-                                              <Dropdown.Item>
-                                                <div className="flex items-center w-full gap-1">
-                                                  <img
-                                                    src={EyeIcon}
-                                                    alt="EyeIcon"
-                                                    className="w-auto h-auto "
-                                                  />
-                                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                                    Preview
-                                                  </p>
-                                                </div>
-                                              </Dropdown.Item>
-                                              <Dropdown.Item
-                                                onClick={() => {
-                                                  uploadC2E();
-                                                }}
-                                              >
-                                                <div className="flex items-center w-full gap-1">
-                                                  <img
-                                                    src={PlusIcon}
-                                                    alt="EyeIcon"
-                                                    className="w-auto h-auto"
-                                                  />
-                                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                                    Add
-                                                  </p>
-                                                </div>
-                                              </Dropdown.Item>
-                                            </Dropdown.Menu>
-                                          </Dropdown>
-                                        </div>
+                                        <div className="custom_dropdown flex-shrink-0"></div>
                                       </div>
                                     </div>
                                   ))}
