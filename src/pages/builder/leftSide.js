@@ -99,16 +99,16 @@ const LeftSide = ({ uploadC2E }) => {
                 <Alert variant="info">No projects found.</Alert>
               )}
               {projects.map((project) => (
-                <div className="flex w-full gap-[10px] items-center mb-[15px]">
+                <div className="flex w-full gap-2 items-baseline mb-[15px]">
                   <div className="">
                     <button
                       onClick={() => setExpanded(expanded ? false : project.id)}
-                      className="flex items-center justify-center border-none rounded bg-[#F7FAFF] p-1 shadow-boxShadowSm"
+                      className="relative top-[-23px] left-0"
                     >
                       <img
                         src={DownArrow}
                         alt="PlusIcon"
-                        className={`w-5 h-5 transition duration-700 ease-in-out delay-150 ${
+                        className={`w-6 h-6 transition duration-700 ease-in-out  ${
                           expanded === project.id ? 'rotate-180' : 'rotate-0'
                         }`}
                       />

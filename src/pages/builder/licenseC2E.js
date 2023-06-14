@@ -41,14 +41,14 @@ const LicenseC2E = ({ setOpenRoyalties }) => {
           C2e-12345678
         </button>
         <div className="flex gap-[40px]">
-          <div className=" mt-[30px] w-[50%]">
+          <div className=" w-[50%]">
             <Formik
               initialValues={{
                 copyright_year: '',
                 copyright_notice: '',
                 c2e_price: '',
-                purchased: false,
-                subscription: false,
+                personal_use: false,
+                reusable: false,
                 open: false,
                 royalty_agreement_number: '',
                 content: '',
@@ -91,43 +91,46 @@ const LicenseC2E = ({ setOpenRoyalties }) => {
                 /* and other goodies */
               }) => (
                 <form onSubmit={handleSubmit} className="flex flex-col ">
+                  <h1 className="font-semibold text-base text-black pb-2 border-b-[1px] border-solid border-[#DDDDDD] mt-[30px] mb-4">
+                    License type
+                  </h1>
                   <div className="flex flex-wrap items-center gap-[27px]">
                     <div className="flex items-center gap-2">
                       <input
                         type="checkbox"
-                        name="purchased"
+                        name="personal_use"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values?.purchased}
-                        checked={!!values?.purchased}
+                        value={values?.personal_use}
+                        checked={!!values?.personal_use}
                       />
                       <label
                         className={`font-normal text-sm m-0 ${
-                          values?.purchased === true
+                          values?.personal_use === true
                             ? 'text-[#2E68BF]'
                             : 'text-[#515151]'
                         }`}
                       >
-                        Purchased
+                        Personal Use
                       </label>
                     </div>
                     <div className="flex items-center gap-2">
                       <input
                         type="checkbox"
-                        name="subscription"
+                        name="reusable"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values?.subscription}
-                        checked={!!values?.subscription}
+                        value={values?.reusable}
+                        checked={!!values?.reusable}
                       />
                       <label
                         className={`font-normal text-sm m-0 ${
-                          values?.subscription === true
+                          values?.reusable === true
                             ? 'text-[#2E68BF]'
                             : 'text-[#515151]'
                         }`}
                       >
-                        Subscription
+                        Reusable
                       </label>
                     </div>
                     <div className="flex items-center gap-2">
