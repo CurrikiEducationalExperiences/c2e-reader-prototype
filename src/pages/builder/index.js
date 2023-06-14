@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import LeftSide from './leftSide';
 import RightSide from './rightSide';
 import Workspace from './workspace';
 import LicenseC2E from './licenseC2E';
 import gif from '../../assets/images/c3e.png';
 import { ProgressBar } from 'react-bootstrap';
+import config from "../../config/api.json";
 
 const Index = () => {
   const [openRoyalties, setOpenRoyalties] = useState(false);
   const [activeC2E, setActiveC2E] = useState(false);
   const [progressBarValue, setprogressBarValue] = useState(0);
+  const params = new URLSearchParams(window.location.search);
+  const c2eEditId = params.get('c2eid');
 
   const uploadC2E = (c2e) => {
     var counter = 0;
@@ -23,6 +26,21 @@ const Index = () => {
       }
     }, [80]);
   };
+
+  useEffect(() => {
+    if (!c2eEditId) return;
+
+    fetch(`${config.apiBaseUrl}/c2e/products`)
+      .then((res) => {
+        if (!res.ok) throw new Error(res.status);
+
+        return res.json();
+      })
+      .then((items) => {
+        const project = items.projects.find((item) => item.general.id.toString() === c2eEditId);
+        setActiveC2E(project);
+      });
+  }, []);
 
   return (
     <div className="max-w-full mx-auto w-full pb-8 bg-mainbg  flex flex-col md:flex-row items-start justify-between gap-[16px] calc-function">

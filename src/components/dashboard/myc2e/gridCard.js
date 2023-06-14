@@ -1,15 +1,11 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 import Dropdown from "react-bootstrap/Dropdown";
 import More from "../../../assets/images/more.svg";
 
 const GridCard = ({ MyC2Es }) => {
-  const getRandomInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-  };
-  
+ 
   return (
     <div className="flex flex-wrap justify-center w-full gap-4 lg:justify-start">
       {MyC2Es?.map((item, index) => (
@@ -28,10 +24,11 @@ const GridCard = ({ MyC2Es }) => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Create</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Listing</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Preview</Dropdown.Item>
+                      <Dropdown.Item href={`/builder?c2eid=${item.general.id}`}>
+                        Edit
+                      </Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">Create Listing</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3" onClick={() => window.open(item.general.sharedLink)}>Preview</Dropdown.Item>
                       <Dropdown.Item href="#/action-3">Delete</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -39,7 +36,7 @@ const GridCard = ({ MyC2Es }) => {
               </div>
               <div className="flex justify-between mb-3 align-baseline">
                 <h2 className="mb-0 text-sm font-normal font-OpenSans hover:text-primarycolor2">{item.general.title}</h2>
-                <p className="mb-0 font-Rubik">${getRandomInt(1,100)}</p>
+                <p className="mb-0 font-Rubik">${item.general.price}</p>
               </div>
               <p className="text-sm font-OpenSans text-gray100 ">{item.general.description?.split(" ").slice(0,30).join(" ")}</p>
             </div>
