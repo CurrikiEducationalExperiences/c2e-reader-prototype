@@ -14,6 +14,7 @@ import FilterResult from "../filterResult";
 
 const Index = () => {
   const [c2es, setC2es] = useState([]);
+  const [original, setOriginal] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,7 +24,10 @@ const Index = () => {
 
         return res.json();
       })
-      .then((items) => setC2es(items.listing))
+      .then((items) => {
+        setC2es(items.listing)
+        setOriginal(items.listing)
+      })
       .catch((e) => {
         const error = "Could not get C2E listing";
         setError(error);
@@ -35,7 +39,7 @@ const Index = () => {
     <div className="w-full pb-8 bg-mainbg ">
       <div className=" m-auto pt-[32px] px-6 bg-white ">
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row">
-          <FilterResult />
+          <FilterResult setC2es={setC2es} c2es={original} />
           {/* <div className=" flex items-center gap-[4px] "> */}
           {/* <p className=" mb-[18px] text-black text-[14px] leading-5 font-Rubik font-normal ">View by</p> */}
           <div className="w-full grid_list_cards">
