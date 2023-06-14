@@ -56,15 +56,11 @@ const LeftSide = () => {
   };
 
   return (
-    <div className="w-full md:w-[auto] laptop:w-[321px] h-full calc-function flex-shrink-0 bg-white">
-      {/* <div className="w-full bg-primarycolor2 p-2">
-        <p className="font-medium text-2xl leading-[28px] text-white m-0">
-          C2E Builder
-        </p>
-      </div> */}
-      <div className="p-4 w-full">
+    <div className="m-[20px] shadow-mainshadow w-full md:w-[auto] laptop:w-[400px] h-full calc-function flex-shrink-0 bg-white">
+
+      <div className="w-full p-4">
         <div className="w-full mb-[24px]">
-          <p className="text-sm font-normal text-primarycolor mb-1">Source</p>
+          <p className="mb-1 text-sm font-normal text-primarycolor">Source</p>
 
           <div className="custom_dropdown_list">
             {sourcesError && <Alert variant="warning">{sourcesError}</Alert>}
@@ -76,12 +72,12 @@ const LeftSide = () => {
             </Form.Select>
           </div>
         </div>
-        <div className="flex items-center gap-1 w-full p-2 mb-4  rounded shadow-boxShadowSm bg-white">
+        <div className="flex items-center w-full gap-1 p-2 mb-4 bg-white rounded shadow-boxShadowSm">
           <img src={SearchIcon} />
           <input
             type="text"
             placeholder="Search"
-            className="w-full font-normal text-sm placeholder-gray100 border-none outline-none"
+            className="w-full text-sm font-normal border-none outline-none placeholder-gray100"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -96,20 +92,34 @@ const LeftSide = () => {
                 <Alert variant="info">No projects found.</Alert>
               )}
               {projects.map((project) => (
-                <div className="w-full flex-col gap-4 ">
+                <div className="flex w-full gap-[10px] items-center mb-[15px]">
+                  <div className="">
+                    <button
+                      onClick={() => setExpanded(expanded ? false : project.id)}
+                      className="flex items-center justify-center border-none rounded bg-[#F7FAFF] p-1 shadow-boxShadowSm"
+                    >
+                      <img
+                        src={DownArrow}
+                        alt="PlusIcon"
+                        className={`w-5 h-5 transition duration-700 ease-in-out delay-150 ${
+                          expanded === project.id ? 'rotate-180' : 'rotate-0'
+                        }`}
+                      />
+                    </button>
+                  </div>
                   <div className="w-full">
-                    <div className="w-full relative mb-[16px] pb-7 ">
-                      <div className="w-full flex flex-col sm:flex-row items-start sm:items-center gap-2 pb-6 sm:pb-0 ">
+                    <div className="relative w-full">
+                      <div className="flex flex-col items-start w-full gap-2 pb-6 sm:flex-row sm:items-center sm:pb-0 ">
                         <img
                           src={project.thumb_url}
                           alt="projectImg"
                           className="w-[96px] h-[74px] object-cover rounded"
                         />
                         <div className="">
-                          <h5 className="font-medium text-sm text-primarycolor2 m-0">
+                          <h5 className="m-0 text-sm font-medium text-primarycolor2">
                             {project.name}
                           </h5>
-                          <p className="font-normal text-xs text-gray100 m-0 ">
+                          <p className="m-0 pb-[10px] text-xs font-normal text-gray100 ">
                             {expanded !== project.id &&
                               `${project.description.slice(0, 32)}...`}
                             {expanded === project.id && project.description}
@@ -125,11 +135,11 @@ const LeftSide = () => {
 
                             <Dropdown.Menu>
                               <Dropdown.Item>
-                                <div className="w-full flex  items-center gap-1">
+                                <div className="flex items-center w-full gap-1">
                                   <img
                                     src={EyeIcon}
                                     alt="EyeIcon"
-                                    className=" w-auto h-auto"
+                                    className="w-auto h-auto "
                                   />
                                   <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
                                     Preview
@@ -137,7 +147,7 @@ const LeftSide = () => {
                                 </div>
                               </Dropdown.Item>
                               <Dropdown.Item>
-                                <div className="w-full flex  items-center gap-1">
+                                <div className="flex items-center w-full gap-1">
                                   <img
                                     src={PlusIcon}
                                     alt="EyeIcon"
@@ -151,24 +161,6 @@ const LeftSide = () => {
                             </Dropdown.Menu>
                           </Dropdown>
                         </div>
-                      </div>
-                      <div className="absolute bottom-[-8px] left-0 w-fit ">
-                        <button
-                          onClick={() =>
-                            setExpanded(expanded ? false : project.id)
-                          }
-                          className="flex items-center justify-center border-none rounded bg-[#F7FAFF] p-1 shadow-boxShadowSm"
-                        >
-                          <img
-                            src={DownArrow}
-                            alt="PlusIcon"
-                            className={`w-5 h-5 transition duration-700 ease-in-out delay-150 ${
-                              expanded === project.id
-                                ? 'rotate-180'
-                                : 'rotate-0'
-                            }`}
-                          />
-                        </button>
                       </div>
                     </div>
 
@@ -186,7 +178,7 @@ const LeftSide = () => {
                                 </p>
                               </Accordion.Header>
                               <Accordion.Body>
-                                <div className=" w-auto flex flex-col gap-2">
+                                <div className="flex flex-col w-auto gap-2 ">
                                   {playlist.activities.length === 0 && (
                                     <Alert variant="info">
                                       No activitties found.
@@ -213,16 +205,16 @@ const LeftSide = () => {
                 <Alert variant="info">No activitties found.</Alert>
               )}
               {activities.map((activity) => (
-                <div className="w-full flex-col gap-4">
-                  <div className="w-full relative">
-                    <div className="w-full flex items-center gap-2 ">
+                <div className="flex-col w-full gap-4">
+                  <div className="relative w-full">
+                    <div className="flex items-center w-full gap-2 ">
                       <img
                         src={projectImg}
                         alt="projectImg"
                         className="w-[96px] h-[74px] object-cover rounded"
                       />
                       <div className="">
-                        <h5 className="font-medium text-sm text-primarycolor2 m-0">
+                        <h5 className="m-0 text-sm font-medium text-primarycolor2">
                           {activity.title}
                         </h5>
                       </div>
@@ -236,11 +228,11 @@ const LeftSide = () => {
 
                           <Dropdown.Menu>
                             <Dropdown.Item>
-                              <div className="w-full flex  items-center gap-1">
+                              <div className="flex items-center w-full gap-1">
                                 <img
                                   src={EyeIcon}
                                   alt="EyeIcon"
-                                  className=" w-auto h-auto"
+                                  className="w-auto h-auto "
                                 />
                                 <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
                                   Preview
@@ -248,7 +240,7 @@ const LeftSide = () => {
                               </div>
                             </Dropdown.Item>
                             <Dropdown.Item>
-                              <div className="w-full flex  items-center gap-1">
+                              <div className="flex items-center w-full gap-1">
                                 <img
                                   src={PlusIcon}
                                   alt="EyeIcon"

@@ -16,8 +16,7 @@ const RightSide = () => {
 
   return (
     <div className="w-full laptop:w-[300px] flex-shrink-0 bg-white ">
-      <div className="w-full h-[52px] bg-primarycolor2 mb-[5px]"></div>
-      <div className="p-4 w-full">
+      <div className="w-full p-4">
         <div className="builder-setting-tabs ">
           <Tabs defaultActiveKey="Metadata" id="uncontrolled-tab-example">
             <Tab eventKey="Metadata" title="Metadata">
@@ -86,13 +85,13 @@ const RightSide = () => {
                           rows="5"
                         />
 
-                        <p className="font-normal text-sm text-black mb-1">
+                        <p className="mb-1 text-sm font-normal text-black">
                           Keywords
-                          <span className="text-primarycolor2 underline">
+                          <span className="underline text-primarycolor2">
                             +Add
                           </span>
                         </p>
-                        <p className="font-normal text-sm text-black mb-1">
+                        <p className="mb-1 text-sm font-normal text-black">
                           c2e, e-learning, learning experience
                         </p>
 
@@ -175,7 +174,7 @@ const RightSide = () => {
                         />
                       </div>
 
-                      <h3 className="font-normal text-sm m-0 text-black">
+                      <h3 className="m-0 text-sm font-normal text-black">
                         Version: 1.0
                       </h3>
 
