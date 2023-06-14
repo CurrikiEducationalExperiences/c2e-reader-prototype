@@ -15,8 +15,8 @@ const RightSide = () => {
   console.log('selectLabel', selectLabel);
 
   return (
-    <div className="w-full laptop:w-[300px] flex-shrink-0 bg-white ">
-      <div className="w-full p-4">
+    <div className="overflow-auto  h-[calc(100vh-150px)] w-full laptop:w-[350px] flex-shrink-0 bg-white ">
+      <div className="w-full">
         <div className="builder-setting-tabs ">
           <Tabs defaultActiveKey="Metadata" id="uncontrolled-tab-example">
             <Tab eventKey="Metadata" title="Metadata">

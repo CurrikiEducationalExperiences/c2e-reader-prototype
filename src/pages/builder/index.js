@@ -20,8 +20,9 @@ const Index = () => {
                 <div>
                   <h1 className=" flex items-center gap-[10px] m-[0] text-primarycolor bolder text-[28px]">
                     C2E Builder
-                    <button className="w-fit h-auto border-none outline-none py-2 px-3 text-white bg-[#0CA789]  rounded  font-normal text-sm">C2e-12345678</button>
-
+                    <button className="w-fit h-auto border-none outline-none py-2 px-3 text-white bg-[#0CA789]  rounded  font-normal text-sm">
+                      C2e-12345678
+                    </button>
                   </h1>
                   <p>Create your new C2Es here.</p>
                 </div>
@@ -46,6 +47,12 @@ const Index = () => {
               </div>
               <div className="flex">
                 <Workspace setOpenRoyalties={setOpenRoyalties} />
+              </div>
+              <div className="h-full bg-[#fff] p-[20px] fixed top-[0] right-[0] shadow-mainshadow">
+                <h1 className=" flex items-center gap-[10px] m-[0] text-primarycolor bolder text-[28px]">
+                  C2E Settings
+                </h1>
+                <p>Manage your C2Es setting here.</p>
                 <RightSide />
               </div>
             </div>
