@@ -4,12 +4,18 @@ import Dropdown from "react-bootstrap/Dropdown";
 import More from "../../../assets/images/more.svg";
 
 const GridCard = ({ MyC2Es }) => {
+  const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  };
+  
   return (
     <div className="flex flex-wrap justify-center w-full gap-4 lg:justify-start">
       {MyC2Es?.map((item, index) => (
         <div key={index} className=" xs:w-[100%] md:w-[48%] lg:w-[31%] xl:w-[23%] h-[250px]  mb-[70px] ">
           <div className=" top-[50px] left-[17px] relative ">
-            <img src={item.img} alt="Product Card Image " className="w-[97px] h-[104px] rounded-[4px] object-cover " />
+            <img src={item.general.thumb_url} alt="Product Card Image " className="w-[97px] h-[104px] rounded-[4px] object-cover " />
           </div>
 
           <div className="overflow-hidden h-[100%] pr-4 pl-4 w-full border-[1px] border-solid border-borderColor hover:border-borderGray rounded-[10px] hover:rounded-[10px] hover:bg-blueHighlight shadow-hovershadow   ">
@@ -32,10 +38,10 @@ const GridCard = ({ MyC2Es }) => {
                 </div>
               </div>
               <div className="flex justify-between mb-3 align-baseline">
-                <h2 className="mb-0 text-sm font-normal font-OpenSans hover:text-primarycolor2">{item.title}</h2>
-                <p className="mb-0 font-Rubik">{item.price}</p>
+                <h2 className="mb-0 text-sm font-normal font-OpenSans hover:text-primarycolor2">{item.general.title}</h2>
+                <p className="mb-0 font-Rubik">${getRandomInt(1,100)}</p>
               </div>
-              <p className="text-sm font-OpenSans text-gray100 ">{item.text?.split(" ").slice(0,30).join(" ")}</p>
+              <p className="text-sm font-OpenSans text-gray100 ">{item.general.description?.split(" ").slice(0,30).join(" ")}</p>
             </div>
           </div>
         </div>

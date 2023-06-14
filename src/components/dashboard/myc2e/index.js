@@ -18,15 +18,15 @@ const Index = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${config.apiBaseUrl}/c2e/listall?userId=1`)
+    fetch(`${config.apiBaseUrl}/c2e/products`)
       .then((res) => {
         if (!res.ok) throw new Error(res.status);
 
         return res.json();
       })
       .then((items) => {
-        setC2es(items.listing)
-        setOriginal(items.listing)
+        setC2es(items.projects)
+        setOriginal(items.projects)
       })
       .catch((e) => {
         const error = "Could not get C2E listing";
