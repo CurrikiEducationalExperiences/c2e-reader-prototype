@@ -40,19 +40,17 @@ const App = () => {
       ) : (
         <>
           <Layout expand={expand} setExpand={setExpand} />
-          <div className={`${expand ? 'pl-[170px]' : 'pl-[50px]'} mt-[30px]`}>
-          <Routes>
-            <Route
-              path="/"
-              element={<Dashboard />}
-            />
-            <Route path="/my-c2e" element={<MyC2ES />} />
-            <Route
-              path="/my-marketplace"
-              element={<MyMarketplace />}
-            />
-            <Route path="/builder" element={<Builder />} />
-          </Routes>
+          <div
+            className={`${
+              expand ? 'pl-[86px] md:pl-[164px]' : 'pl-[36px] md:pl-[44px]'
+            } pr-4 md:pr-6 mt-[30px]`}
+          >
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/my-c2e" element={<MyC2ES />} />
+              <Route path="/my-marketplace" element={<MyMarketplace />} />
+              <Route path="/builder" element={<Builder />} />
+            </Routes>
           </div>
         </>
       )}
