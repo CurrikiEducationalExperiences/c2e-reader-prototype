@@ -141,7 +141,7 @@ const LeftSide = ({ uploadC2E }) => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                              <Dropdown.Item>
+                              <Dropdown.Item onClick={() => window.open(project.general.sharedLink)}>
                                 <div className="flex items-center w-full gap-1">
                                   <img
                                     src={EyeIcon}
@@ -149,7 +149,7 @@ const LeftSide = ({ uploadC2E }) => {
                                     className="w-auto h-auto "
                                   />
                                   <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                    Preview
+                                    Preview   
                                   </p>
                                 </div>
                               </Dropdown.Item>
