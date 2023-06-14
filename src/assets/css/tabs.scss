@@ -13,7 +13,7 @@
 
     .nav-item {
       .nav-link {
-        font-family: "Rubik";
+        font-family: 'Rubik';
         font-style: normal;
         font-weight: 400;
         font-size: 13px;
@@ -36,7 +36,7 @@
           color: #084892;
           border: 1px solid #084892;
           border-bottom: 1px solid #ffffff;
-          font-family: "Rubik";
+          font-family: 'Rubik';
           font-style: normal;
           font-weight: 400;
           font-size: 13px;
@@ -62,7 +62,7 @@
 
     .nav-item {
       .nav-link {
-        font-family: "Rubik";
+        font-family: 'Rubik';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -98,10 +98,10 @@
       margin-bottom: 16px;
 
       .accordion-header {
-        height: 36px !important;
+        min-height: 36px !important;
         margin-bottom: 16px;
         .accordion-button {
-          font-family: "Rubik";
+          font-family: 'Rubik';
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
@@ -114,13 +114,13 @@
           border: 0.5px solid #aaaaaa !important;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25) !important;
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 8px;
             top: 10px;
             width: 16px;
             height: 16px;
-            background-image: url("../images/b-b-arrow.svg");
+            background-image: url('../images/b-b-arrow.svg');
             transform: rotate(180deg);
           }
 
@@ -129,7 +129,7 @@
             background: #ffffff !important;
             &::before {
               transform: rotate(0deg);
-              background-image: url("../images/b-a-arrow.svg");
+              background-image: url('../images/b-a-arrow.svg');
             }
           }
           &:focus {
@@ -144,7 +144,7 @@
       }
 
       .accordion-body {
-        font-family: "Rubik";
+        font-family: 'Rubik';
         font-style: normal;
         font-weight: 300;
         font-size: 8px;
@@ -174,7 +174,7 @@
         height: auto !important;
         margin-bottom: 16px;
         .accordion-button {
-          font-family: "Rubik";
+          font-family: 'Rubik';
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
@@ -188,13 +188,13 @@
           box-shadow: inherit !important;
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 8px;
             top: 20px;
             width: 16px;
             height: 16px;
-            background-image: url("../images/b-b-arrow.svg");
+            background-image: url('../images/b-b-arrow.svg');
             transform: rotate(180deg);
           }
 
@@ -203,7 +203,7 @@
             background: #ffffff !important;
             &::before {
               transform: rotate(0deg);
-              background-image: url("../images/b-a-arrow.svg");
+              background-image: url('../images/b-a-arrow.svg');
             }
           }
           &:focus {
@@ -218,7 +218,7 @@
       }
 
       .accordion-body {
-        font-family: "Rubik";
+        font-family: 'Rubik';
         font-style: normal;
         font-weight: 300;
         font-size: 8px;
@@ -259,7 +259,7 @@ ul.nav.nav-tabs {
     }
   }
   .nav-link {
-    font-family: "Rubik";
+    font-family: 'Rubik';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -270,7 +270,7 @@ ul.nav.nav-tabs {
   .nav-link.active {
     color: #084892;
     background: #fff;
-    font-family: "Rubik";
+    font-family: 'Rubik';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -294,7 +294,7 @@ ul.nav.nav-tabs {
           outline: none;
         }
         .accordion-button {
-          font-family: "Rubik";
+          font-family: 'Rubik';
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
@@ -383,7 +383,7 @@ ul.nav.nav-tabs {
       padding: 0 !important;
       border: none !important;
       outline: none;
-      font-family: "Open Sans";
+      font-family: 'Open Sans';
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -392,7 +392,7 @@ ul.nav.nav-tabs {
       text-align: left;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         right: 16px !important;
         top: 50%;
@@ -458,7 +458,7 @@ ul.nav.nav-tabs {
   padding: 8px 12px;
   width: fit-content;
   border-radius: 4px;
-  font-family: "Rubik";
+  font-family: 'Rubik';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -476,7 +476,7 @@ ul.nav.nav-tabs {
   background: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 0;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -487,7 +487,7 @@ ul.nav.nav-tabs {
   outline: none !important;
 }
 .custom_label {
-  font-family: "Rubik";
+  font-family: 'Rubik';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
