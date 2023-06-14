@@ -10,6 +10,7 @@ import Builder from '../src/pages/builder';
 
 const App = () => {
   const [loading, setLoading] = useState('loading');
+  const [expand, setExpand] = useState(true);
 
   useEffect(() => {
     if (loading) {
@@ -38,7 +39,8 @@ const App = () => {
         </div>
       ) : (
         <>
-          <Layout />
+          <Layout expand={expand} setExpand={setExpand} />
+          <div className={`${expand ? 'pl-[170px]' : 'pl-[50px]'} mt-[30px]`}>
           <Routes>
             <Route
               path="/"
@@ -51,6 +53,7 @@ const App = () => {
             />
             <Route path="/builder" element={<Builder />} />
           </Routes>
+          </div>
         </>
       )}
     </>

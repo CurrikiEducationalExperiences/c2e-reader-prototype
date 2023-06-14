@@ -10,7 +10,7 @@ const DashboardSetting = ({ dashboardData }) => {
   const datacard = dashboardData?.map((item) => item);
 
   return (
-    <div className=" w-full bg-mainbg pb-8 pl-[100px] lg:pl-[167px]">
+    <div className="w-full pb-8  bg-mainbg">
       <div className=" w-full m-auto pt-[32px] px-6 bg-white ">
         <div className=" pb-[60px] md:pb-[148px] ">
           {/* top settings */}

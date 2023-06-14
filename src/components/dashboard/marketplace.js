@@ -26,45 +26,45 @@ const Marketplace = () => {
       });
   }, []);
   return (
-    <div className=" w-full bg-mainbg pb-[32px] md:pb-[70px] pl-[100px] lg:pl-[167px]">
+    <div className=" w-full bg-mainbg pb-[32px] md:pb-[70px] ">
       <div className=" w-full m-auto pt-[32px] px-6 bg-white ">
         <div className=" pb-[42px]">
           <h3 className=" font-medium text-sm text-[#084892] w-full pb-[18px] border-b-[1px] border-solid border-b-[#DDDDDD] mb-[23px]">MARKETPLACE LISTINGS</h3>
-          <div className=" w-full flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col w-full gap-6  lg:flex-row">
             <FilterResult />
 
             <div className="w-full ">
               {error && <Alert variant="warning">{error}</Alert>}
               <DataTable
                 data={listings}
-                className=" overflow-x-auto "
+                className="overflow-x-auto "
                 columns={[
                   {
-                    name: <p className="font-medium text-sm text-gray100 m-0">Marketplace</p>,
+                    name: <p className="m-0 text-sm font-medium text-gray100">Marketplace</p>,
                     sortable: true,
                     selector: (row) => (
                       <div className="flex">
-                        <div className="flex items-center gap-2 flex-shrink-0 ">
+                        <div className="flex items-center flex-shrink-0 gap-2 ">
                           <span className="w-[32px] h-[32px] rounded-full bg-primarycolor"></span>
-                          <p className="font-normal text-sm text-primarycolor m-0">{row.name}</p>
+                          <p className="m-0 text-sm font-normal text-primarycolor">{row.name}</p>
                         </div>
                       </div>
                     ),
                     sortId: "iconName",
                   },
                   {
-                    name: <p className="font-medium text-sm text-gray100 m-0">Title</p>,
+                    name: <p className="m-0 text-sm font-medium text-gray100">Title</p>,
                     sortable: true,
                     selector: (row) => (
                       <div className="">
-                        <p className="font-medium text-sm text-gray100 m-0">{row.title}</p>
+                        <p className="m-0 text-sm font-medium text-gray100">{row.title}</p>
                       </div>
                     ),
                     sortId: "name",
                   },
 
                   {
-                    name: <p className="font-medium text-sm text-gray100 m-0">Purchased</p>,
+                    name: <p className="m-0 text-sm font-medium text-gray100">Purchased</p>,
                     cell: (row) => {
                       return (
                         <div className="flex-grow four">
@@ -77,7 +77,7 @@ const Marketplace = () => {
                   },
 
                   {
-                    name: <p className="font-medium text-sm text-gray100 m-0">Price</p>,
+                    name: <p className="m-0 text-sm font-medium text-gray100">Price</p>,
                     cell: (row) => {
                       return (
                         <div className="flex justify-between w-full">

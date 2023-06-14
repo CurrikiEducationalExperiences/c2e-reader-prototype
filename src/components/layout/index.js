@@ -1,20 +1,18 @@
-import React from "react";
+import React from 'react';
 
 // import Navbar from "./navbar";
-import Sidebar from "./sidebar";
+import Sidebar from './sidebar';
 
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
-const Layout = () => {
+const Layout = ({ expand, setExpand }) => {
   const Location = useLocation();
-
-  const [expand, setExpand] = React.useState(false);
 
   return (
     <div className="">
       {/* <Navbar /> */}
-      <div className="flex w-full h-full relative ">
-        <Sidebar Location={Location} setExpand={setExpand} expand={expand} />
+      <div className="relative flex w-full h-full ">
+        <Sidebar Location={Location} setOpen={setExpand} open={expand} />
       </div>
     </div>
   );
