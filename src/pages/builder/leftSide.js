@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Tab, Tabs, Dropdown, Accordion, Form, Alert } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import { Tab, Tabs, Dropdown, Accordion, Form, Alert } from 'react-bootstrap';
 
-import SearchIcon from "../../assets/images/search.svg";
-import projectImg from "../../assets/images/art.png";
-import More from "../../assets/images/more.svg";
-import EyeIcon from "../../assets/images/mdi_eye.svg";
-import PlusIcon from "../../assets/images/Icon-plus.svg";
+import SearchIcon from '../../assets/images/search.svg';
+import projectImg from '../../assets/images/art.png';
+import More from '../../assets/images/more.svg';
+import EyeIcon from '../../assets/images/mdi_eye.svg';
+import PlusIcon from '../../assets/images/Icon-plus.svg';
 import config from '../../config/api.json';
+import DownArrow from '../../assets/images/down-arrow.svg';
 
 const LeftSide = () => {
   const [expanded, setExpanded] = useState(false);
@@ -30,7 +31,7 @@ const LeftSide = () => {
         setSourcesError(error);
         console.log(error, e);
       });
-  },[]);
+  }, []);
 
   useEffect(() => doContentSearch(query), [selectedSource, query]);
 
@@ -66,32 +67,51 @@ const LeftSide = () => {
           <p className="text-sm font-normal text-primarycolor mb-1">Source</p>
 
           <div className="custom_dropdown_list">
-            {sourcesError && <Alert variant='warning'>{sourcesError}</Alert>}
+            {sourcesError && <Alert variant="warning">{sourcesError}</Alert>}
             <Form.Select onChange={(value) => setSelectedSource(value)}>
               <option>Select content source</option>
-              {sources.map((source) => <option value={source.id}>{source.title}</option>)} 
+              {sources.map((source) => (
+                <option value={source.id}>{source.title}</option>
+              ))}
             </Form.Select>
           </div>
         </div>
         <div className="flex items-center gap-1 w-full p-2 mb-4  rounded shadow-boxShadowSm bg-white">
           <img src={SearchIcon} />
-          <input type="text" placeholder="Search" className="w-full font-normal text-sm placeholder-gray100 border-none outline-none" value={query} onChange={(e) => {setQuery(e.target.value);}}/>
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full font-normal text-sm placeholder-gray100 border-none outline-none"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+          />
         </div>
 
         <div className="builder-tabs min-w-full xsm:min-w-[200px]">
           <Tabs defaultActiveKey="Projects" id="uncontrolled-tab-example">
             <Tab eventKey="Projects" title="Projects">
-              {projects.length === 0 && <Alert variant='info'>No projects found.</Alert>}
+              {projects.length === 0 && (
+                <Alert variant="info">No projects found.</Alert>
+              )}
               {projects.map((project) => (
-                <div className="w-full flex-col gap-4">
+                <div className="w-full flex-col gap-4 ">
                   <div className="w-full">
-                    <div className="w-full relative mb-[16px]">
+                    <div className="w-full relative mb-[16px] pb-7 ">
                       <div className="w-full flex flex-col sm:flex-row items-start sm:items-center gap-2 pb-6 sm:pb-0 ">
-                        <img src={project.thumb_url} alt="projectImg" className="w-[96px] h-[74px] object-cover rounded" />
+                        <img
+                          src={project.thumb_url}
+                          alt="projectImg"
+                          className="w-[96px] h-[74px] object-cover rounded"
+                        />
                         <div className="">
-                          <h5 className="font-medium text-sm text-primarycolor2 m-0">{project.name}</h5>
-                          <p className="font-normal text-xs text-gray100 m-0">
-                            {expanded !== project.id && `${project.description.slice(0, 32)}...`}
+                          <h5 className="font-medium text-sm text-primarycolor2 m-0">
+                            {project.name}
+                          </h5>
+                          <p className="font-normal text-xs text-gray100 m-0 ">
+                            {expanded !== project.id &&
+                              `${project.description.slice(0, 32)}...`}
                             {expanded === project.id && project.description}
                           </p>
                         </div>
@@ -106,41 +126,73 @@ const LeftSide = () => {
                             <Dropdown.Menu>
                               <Dropdown.Item>
                                 <div className="w-full flex  items-center gap-1">
-                                  <img src={EyeIcon} alt="EyeIcon" className=" w-auto h-auto" />
-                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">Preview</p>
+                                  <img
+                                    src={EyeIcon}
+                                    alt="EyeIcon"
+                                    className=" w-auto h-auto"
+                                  />
+                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                    Preview
+                                  </p>
                                 </div>
                               </Dropdown.Item>
                               <Dropdown.Item>
                                 <div className="w-full flex  items-center gap-1">
-                                  <img src={PlusIcon} alt="EyeIcon" className="w-auto h-auto" />
-                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">Add</p>
+                                  <img
+                                    src={PlusIcon}
+                                    alt="EyeIcon"
+                                    className="w-auto h-auto"
+                                  />
+                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                    Add
+                                  </p>
                                 </div>
                               </Dropdown.Item>
                             </Dropdown.Menu>
                           </Dropdown>
                         </div>
                       </div>
-                      <div className="absolute bottom-[-10px] right-0 w-fit ">
-                        <button onClick={() => setExpanded(expanded ? false : project.id)} className="flex items-center gap-1  border-none rounded bg-[#F7FAFF] p-1 shadow-boxShadowSm">
-                          <img src={PlusIcon} alt="PlusIcon" className="" />
-                          <p className="font-normal text-xs text-primarycolor2 m-0">Expand</p>
+                      <div className="absolute bottom-[-8px] left-0 w-fit ">
+                        <button
+                          onClick={() =>
+                            setExpanded(expanded ? false : project.id)
+                          }
+                          className="flex items-center justify-center border-none rounded bg-[#F7FAFF] p-1 shadow-boxShadowSm"
+                        >
+                          <img
+                            src={DownArrow}
+                            alt="PlusIcon"
+                            className={`w-5 h-5 transition duration-700 ease-in-out delay-150 ${
+                              expanded === project.id
+                                ? 'rotate-180'
+                                : 'rotate-0'
+                            }`}
+                          />
                         </button>
                       </div>
                     </div>
 
                     {expanded === project.id && (
                       <div className="builder_accordion">
-                        {project.playlists.length === 0 && <Alert variant='info'>No playlists found.</Alert>}
-                        {project.playlists.map(playlist => (
+                        {project.playlists.length === 0 && (
+                          <Alert variant="info">No playlists found.</Alert>
+                        )}
+                        {project.playlists.map((playlist) => (
                           <Accordion defaultActiveKey="0" flush>
                             <Accordion.Item eventKey={playlist.id}>
                               <Accordion.Header>
-                                <p className="font-normal text-sm  text-[#95959] m-0">{playlist.title}</p>
+                                <p className="font-normal text-sm  text-[#95959] m-0">
+                                  {playlist.title}
+                                </p>
                               </Accordion.Header>
                               <Accordion.Body>
                                 <div className=" w-auto flex flex-col gap-2">
-                                  {playlist.activities.length === 0 && <Alert variant='info'>No activitties found.</Alert>}
-                                  {playlist.activities.map(activity => (
+                                  {playlist.activities.length === 0 && (
+                                    <Alert variant="info">
+                                      No activitties found.
+                                    </Alert>
+                                  )}
+                                  {playlist.activities.map((activity) => (
                                     <div className="w-full bg-white border-[0.5px] border-solid border-[#959595] shadow-boxShadowMd p-2 rounded font-normal text-sm  text-[#95959]">
                                       {activity.title}
                                     </div>
@@ -150,23 +202,29 @@ const LeftSide = () => {
                             </Accordion.Item>
                           </Accordion>
                         ))}
-
                       </div>
                     )}
                   </div>
                 </div>
               ))}
-
             </Tab>
             <Tab eventKey="Activities" title="Activities">
-              {activities.length === 0 && <Alert variant='info'>No activitties found.</Alert>}
+              {activities.length === 0 && (
+                <Alert variant="info">No activitties found.</Alert>
+              )}
               {activities.map((activity) => (
                 <div className="w-full flex-col gap-4">
                   <div className="w-full relative">
                     <div className="w-full flex items-center gap-2 ">
-                      <img src={projectImg} alt="projectImg" className="w-[96px] h-[74px] object-cover rounded" />
+                      <img
+                        src={projectImg}
+                        alt="projectImg"
+                        className="w-[96px] h-[74px] object-cover rounded"
+                      />
                       <div className="">
-                        <h5 className="font-medium text-sm text-primarycolor2 m-0">{activity.title}</h5>
+                        <h5 className="font-medium text-sm text-primarycolor2 m-0">
+                          {activity.title}
+                        </h5>
                       </div>
                     </div>
                     <div className="absolute top-0 right-0">
@@ -179,14 +237,26 @@ const LeftSide = () => {
                           <Dropdown.Menu>
                             <Dropdown.Item>
                               <div className="w-full flex  items-center gap-1">
-                                <img src={EyeIcon} alt="EyeIcon" className=" w-auto h-auto" />
-                                <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">Preview</p>
+                                <img
+                                  src={EyeIcon}
+                                  alt="EyeIcon"
+                                  className=" w-auto h-auto"
+                                />
+                                <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                  Preview
+                                </p>
                               </div>
                             </Dropdown.Item>
                             <Dropdown.Item>
                               <div className="w-full flex  items-center gap-1">
-                                <img src={PlusIcon} alt="EyeIcon" className="w-auto h-auto" />
-                                <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">Add</p>
+                                <img
+                                  src={PlusIcon}
+                                  alt="EyeIcon"
+                                  className="w-auto h-auto"
+                                />
+                                <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
+                                  Add
+                                </p>
                               </div>
                             </Dropdown.Item>
                           </Dropdown.Menu>
