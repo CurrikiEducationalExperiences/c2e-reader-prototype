@@ -1,11 +1,11 @@
 import React from 'react';
 import projectImg from '../../assets/images/art.png';
 
-const RoyaltyBasedContentCard = ({ setModalShow }) => {
+const RoyaltyBasedContentCard = ({ setModalShow, activity }) => {
   return (
     <div className=" w-[203px] h-auto p-2  border-[1px] border-solid border-[#2E68BF] rounded-2xl">
       <p className="font-medium text-xs text-black mb-2">
-        Financial Year 2023 Chart
+        {activity.royalty.royaltyContentTitle}
       </p>
       <div className="w-full h-[111px] rounded-lg mb-3">
         <img
@@ -16,11 +16,11 @@ const RoyaltyBasedContentCard = ({ setModalShow }) => {
       </div>
       <div className="flex items-center gap-2 justify-between flex-wrap">
         <p className="font-medium text-xs text-black mb-0">
-          Terms $10/year Unlimited
+          {activity.royalty.publisherTerms}
         </p>
         <button
           type="button"
-          onClick={() => setModalShow(true)}
+          onClick={() => setModalShow(activity)}
           className="w-fit  border-none outline-none p-0 m-0 font-medium text-xs text-[#628ECF]"
         >
           More

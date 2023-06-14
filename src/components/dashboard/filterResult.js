@@ -60,7 +60,7 @@ const FilterResult = ({setC2es, c2es}) => {
               onChange={((e)=>{
                 console.log(e.target.value)
                 if(e.target.value) {
-                  setC2es(c2es.filter(data=>data.title?.includes(e.target.value)))
+                  setC2es(c2es.filter(data=>data.general.title?.includes(e.target.value)))
                 } else {
 
                   setC2es(c2es)
