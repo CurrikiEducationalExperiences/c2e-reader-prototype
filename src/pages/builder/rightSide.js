@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { Tab, Tabs } from 'react-bootstrap';
-import Multiselect from 'multiselect-react-dropdown';
+import { TagsInput } from 'react-tag-input-component';
 import Opensidebar from '../../assets/images/settings.gif';
 import Closesidebar from '../../assets/images/close-sidebar.svg';
-const options = [
-  { id: 1, name: 'Option 1' },
-  { id: 2, name: 'Option 2' },
-  { id: 3, name: 'Option 3' },
-  // Add more options as needed
-];
 
 const RightSide = () => {
-  const [selectLabel, setSelectLabel] = useState([]);
-
   const [settings, setSettings] = useState(false);
   return (
     <div
@@ -28,11 +20,7 @@ const RightSide = () => {
           }}
           className=" z-[-1] absolute top-[50%] left-[-40px] cursor-pointer w-[80px] h-[80px] bg-white border solid border-[#ccc] rounded-[50%] flex pl-[10px] items-center"
         >
-          <img
-            src={Opensidebar}
-            alt=""
-            className="cursor-pointer w-[25px]"
-          />
+          <img src={Opensidebar} alt="" className="cursor-pointer w-[25px]" />
         </div>
       </div>
       {settings && (
@@ -58,7 +46,7 @@ const RightSide = () => {
                         publisher_email: 'info@curriki.org',
                         publisher_url: 'https://c2e.curriki.org',
                         password: '',
-                        selectedOptions: selectLabel,
+                        keywords: [],
                       }}
                       validate={(values) => {
                         const errors = {};
@@ -88,6 +76,7 @@ const RightSide = () => {
                         handleBlur,
                         handleSubmit,
                         isSubmitting,
+                        setFieldValue,
                         /* and other goodies */
                       }) => (
                         <form
@@ -120,16 +109,15 @@ const RightSide = () => {
                               Keywords
                             </p>
 
-                            <Multiselect
-                              options={options}
-                              selectedValues={selectLabel}
-                              onSelect={(selectedList) => {
-                                setSelectLabel(selectedList);
+                            <TagsInput
+                              value={values.keywords}
+                              onChange={(e) => {
+                                if (setFieldValue) {
+                                  setFieldValue('keywords', e);
+                                }
                               }}
-                              onRemove={(selectedList) => {
-                                setSelectLabel(selectedList);
-                              }}
-                              displayValue="name"
+                              name="keywords"
+                              placeHolder="enter keywords"
                             />
                           </div>
                           <div className="my-[16px]">
@@ -206,9 +194,9 @@ const RightSide = () => {
                             Version: 0.1
                           </h3>
 
-                          {/* <button type="submit" disabled={isSubmitting}>
-                        Submit
-                      </button> */}
+                          <button type="submit" disabled={isSubmitting}>
+                            Submit
+                          </button>
                         </form>
                       )}
                     </Formik>
