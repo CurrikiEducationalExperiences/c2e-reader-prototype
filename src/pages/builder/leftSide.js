@@ -155,7 +155,7 @@ const LeftSide = ({ uploadC2E }) => {
                               </Dropdown.Item>
                               <Dropdown.Item
                                 onClick={() => {
-                                  uploadC2E();
+                                  uploadC2E(project);
                                 }}
                               >
                                 <div className="flex items-center w-full gap-1">
@@ -189,49 +189,6 @@ const LeftSide = ({ uploadC2E }) => {
                                     {playlist.title}
                                   </p>
                                   <div className="custom_dropdown flex-shrink-0">
-                                    <Dropdown>
-                                      <Dropdown.Toggle
-                                        variant=""
-                                        id="dropdown-basic"
-                                      >
-                                        <img
-                                          src={More}
-                                          alt="jjk"
-                                          className="w-5 h-5"
-                                        />
-                                      </Dropdown.Toggle>
-
-                                      <Dropdown.Menu>
-                                        <Dropdown.Item>
-                                          <div className="flex items-center w-full gap-1">
-                                            <img
-                                              src={EyeIcon}
-                                              alt="EyeIcon"
-                                              className="w-auto h-auto "
-                                            />
-                                            <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                              Preview
-                                            </p>
-                                          </div>
-                                        </Dropdown.Item>
-                                        <Dropdown.Item
-                                          onClick={() => {
-                                            uploadC2E();
-                                          }}
-                                        >
-                                          <div className="flex items-center w-full gap-1">
-                                            <img
-                                              src={PlusIcon}
-                                              alt="EyeIcon"
-                                              className="w-auto h-auto"
-                                            />
-                                            <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                              Add
-                                            </p>
-                                          </div>
-                                        </Dropdown.Item>
-                                      </Dropdown.Menu>
-                                    </Dropdown>
                                   </div>
                                 </div>
                               </Accordion.Header>
@@ -249,49 +206,6 @@ const LeftSide = ({ uploadC2E }) => {
                                           {activity.title}
                                         </p>
                                         <div className="custom_dropdown flex-shrink-0">
-                                          <Dropdown>
-                                            <Dropdown.Toggle
-                                              variant=""
-                                              id="dropdown-basic"
-                                            >
-                                              <img
-                                                src={More}
-                                                alt="jjk"
-                                                className="w-5 h-5"
-                                              />
-                                            </Dropdown.Toggle>
-
-                                            <Dropdown.Menu>
-                                              <Dropdown.Item>
-                                                <div className="flex items-center w-full gap-1">
-                                                  <img
-                                                    src={EyeIcon}
-                                                    alt="EyeIcon"
-                                                    className="w-auto h-auto "
-                                                  />
-                                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                                    Preview
-                                                  </p>
-                                                </div>
-                                              </Dropdown.Item>
-                                              <Dropdown.Item
-                                                onClick={() => {
-                                                  uploadC2E();
-                                                }}
-                                              >
-                                                <div className="flex items-center w-full gap-1">
-                                                  <img
-                                                    src={PlusIcon}
-                                                    alt="EyeIcon"
-                                                    className="w-auto h-auto"
-                                                  />
-                                                  <p className="font-normal text-[10px] leading-[20px] text-primarycolor2 m-0">
-                                                    Add
-                                                  </p>
-                                                </div>
-                                              </Dropdown.Item>
-                                            </Dropdown.Menu>
-                                          </Dropdown>
                                         </div>
                                       </div>
                                     </div>

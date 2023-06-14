@@ -1,11 +1,18 @@
 import React from 'react';
 import { Formik } from 'formik';
 import Modal from 'react-bootstrap/Modal';
+import { Alert } from "react-bootstrap";
 
 import RoyaltyBasedContentCard from './royaltyBasedContentCard';
 
-const LicenseC2E = ({ setOpenRoyalties }) => {
+const LicenseC2E = ({ setOpenRoyalties, c2e }) => {
   const [modalShow, setModalShow] = React.useState(false);
+  const royaltyActivities = [];
+  for (let playlist of c2e.playlists) {
+    for (let activity of playlist.activities) {
+      if (activity.royalty) royaltyActivities.push(activity);
+    }
+  }
 
   return (
     <div className="w-full h-full bg-white calc-function p-[20px] ">
@@ -35,10 +42,10 @@ const LicenseC2E = ({ setOpenRoyalties }) => {
       <div className="border border-dashed border-x-yellowColor mb-[12px]"></div>
       <div className="w-full h-full ">
         <h2 className="mb-2 text-2xl font-medium text-black">
-          C2E Title: Activity Sampler
+          C2E Title: {c2e.general.title}
         </h2>
         <button className="w-[172px] h-auto border-none outline-none py-2 px-3 text-white bg-[#0CA789] rounded font-normal text-sm">
-          C2e-12345678
+          C2E-{c2e.general.id}
         </button>
         <div className="flex gap-[40px]">
           <div className=" mt-[30px] w-[50%]">
@@ -165,7 +172,7 @@ const LicenseC2E = ({ setOpenRoyalties }) => {
                       placeholder="Copyright Notice"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.copyright_notice}
+                      value={c2e.copyright.copyrightNotice}
                       cols="10"
                       rows="5"
                     />
@@ -177,7 +184,7 @@ const LicenseC2E = ({ setOpenRoyalties }) => {
                       name="copyright_year"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.copyright_year}
+                      value={c2e.copyright.CopyrihghtYear}
                     />
                   </div>
 
@@ -194,23 +201,14 @@ const LicenseC2E = ({ setOpenRoyalties }) => {
                   <div className="w-full xsm:w-[231px]">
                     <input
                       className="custom_input border_input placeholder-primarycolor2"
-                      type="number"
+                      type="text"
                       placeholder="C2E Price"
                       name="c2e_price"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.c2e_price}
+                      value={c2e.copyright.Price}
                     />
                   </div>
-                  {/* <div className="ml-auto mt-7">
-                    <button
-                      type="submit"
-                      className="text-white primary-btn bg-primarycolor save-btn"
-                      disabled={isSubmitting}
-                    >
-                      SAVE
-                    </button>
-                  </div> */}
                 </form>
               )}
             </Formik>
@@ -221,15 +219,8 @@ const LicenseC2E = ({ setOpenRoyalties }) => {
             </h1>
 
             <div className="flex items-center gap-[26px] flex-wrap">
-              <RoyaltyBasedContentCard setModalShow={setModalShow} />
-              <RoyaltyBasedContentCard setModalShow={setModalShow} />
-              <RoyaltyBasedContentCard setModalShow={setModalShow} />
-              <RoyaltyBasedContentCard setModalShow={setModalShow} />
-
-              <RoyaltyBasedContentCard setModalShow={setModalShow} />
-
-              <RoyaltyBasedContentCard setModalShow={setModalShow} />
-              <RoyaltyBasedContentCard setModalShow={setModalShow} />
+              {royaltyActivities.length === 0 && <Alert variant="info">No activities with royalties selected.</Alert>}
+              {royaltyActivities.map((activity) => (<RoyaltyBasedContentCard activity={activity} setModalShow={setModalShow} />))}
             </div>
           </div>
         </div>
@@ -249,7 +240,7 @@ const RoyaltyInformationModal = ({
 }) => {
   return (
     <Modal
-      show={modalShow}
+      show={modalShow ? true : false}
       onHide={() => setModalShow(false)}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
@@ -263,120 +254,105 @@ const RoyaltyInformationModal = ({
           </h1>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <div className="grid grid-cols-3 gap-[16px] ">
-          <div className="">
-            <label className="mb-3 custom_label">
-              Royalty Agreement Number
-            </label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="text"
-              placeholder="Royalty Agreement Number"
-              name="royalty_agreement_number"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.royalty_agreement_number}
-            />
+      {modalShow && (
+        <Modal.Body>
+          <div className="grid grid-cols-3 gap-[16px] ">
+            <div className="">
+              <label className="mb-3 custom_label">
+                Royalty Agreement Number
+              </label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="Royalty Agreement Number"
+                name="royalty_agreement_number"
+                value={modalShow.royalty.royaltyNumber.toUpperCase()}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">Content</label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="Content"
+                name="content"
+                value={modalShow.royalty.royaltyContentTitle}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">Agreement Date</label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="Agreement Date"
+                name="agreement_date"
+                value={modalShow.royalty.agreementDate}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">Status</label>
+              <input
+                className="custom_input border_input_red placeholder-[#FF403B]"
+                type="text"
+                placeholder="Status"
+                name="status"
+                value={modalShow.royalty.status}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">Publisher Rights</label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="Publisher Rights"
+                name="publisher_rights"
+                value={modalShow.royalty.publisherRights}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">License Expiration Date</label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="License Expiration Date"
+                name="license_expiration_date"
+                value={modalShow.royalty.licenseExpirationDate}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">Publisher Name</label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="Publisher Name"
+                name="publisher_name"
+                value={modalShow.royalty.publisherName}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">Publisher URL</label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="Publisher URL"
+                name="publisher_url"
+                value={modalShow.royalty.publisherURL}
+              />
+            </div>
+            <div className="">
+              <label className="mb-3 custom_label">Publisher Terms</label>
+              <input
+                className="custom_input border_input placeholder-primarycolor2"
+                type="text"
+                placeholder="Publisher Terms"
+                name="publisher_terms"
+                value={modalShow.royalty.publisherTerms}
+              />
+            </div>
           </div>
-          <div className="">
-            <label className="mb-3 custom_label">Content</label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="text"
-              placeholder="Content"
-              name="content"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.content}
-            />
-          </div>
-          <div className="">
-            <label className="mb-3 custom_label">Agreement Date</label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="date"
-              placeholder="Agreement Date"
-              name="agreement_date"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.agreement_date}
-            />
-          </div>
-          <div className="">
-            <label className="mb-3 custom_label">Status</label>
-            <input
-              className="custom_input border_input_red placeholder-[#FF403B]"
-              type="text"
-              placeholder="Status"
-              name="status"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.status}
-            />
-          </div>
-          <div className="">
-            <label className="mb-3 custom_label">Publisher Rights</label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="text"
-              placeholder="Publisher Rights"
-              name="publisher_rights"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.publisher_rights}
-            />
-          </div>
-          <div className="">
-            <label className="mb-3 custom_label">License Expiration Date</label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="date"
-              placeholder="License Expiration Date"
-              name="license_expiration_date"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.license_expiration_date}
-            />
-          </div>
-          <div className="">
-            <label className="mb-3 custom_label">Publisher Name</label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="text"
-              placeholder="Publisher Name"
-              name="publisher_name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.publisher_name}
-            />
-          </div>
-          <div className="">
-            <label className="mb-3 custom_label">Publisher URL</label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="text"
-              placeholder="Publisher URL"
-              name="publisher_url"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.publisher_url}
-            />
-          </div>
-          <div className="">
-            <label className="mb-3 custom_label">Publisher Terms</label>
-            <input
-              className="custom_input border_input placeholder-primarycolor2"
-              type="text"
-              placeholder="Publisher Terms"
-              name="publisher_terms"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.publisher_terms}
-            />
-          </div>
-        </div>
-      </Modal.Body>
+        </Modal.Body>
+      )}
+
     </Modal>
   );
 };

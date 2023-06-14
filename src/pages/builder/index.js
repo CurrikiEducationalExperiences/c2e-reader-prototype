@@ -12,13 +12,13 @@ const Index = () => {
   const [activeC2E, setActiveC2E] = useState(false);
   const [progressBarValue, setprogressBarValue] = useState(0);
 
-  const uploadC2E = () => {
+  const uploadC2E = (c2e) => {
     var counter = 0;
     const myInterval = setInterval(() => {
       setprogressBarValue(counter++);
       if (counter === 101) {
         clearInterval(myInterval);
-        setActiveC2E(true);
+        setActiveC2E(c2e);
         setprogressBarValue(0);
       }
     }, [80]);
@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <div className="max-w-full mx-auto w-full pb-8 bg-mainbg  flex flex-col md:flex-row items-start justify-between gap-[16px] calc-function">
       {openRoyalties ? (
-        <LicenseC2E setOpenRoyalties={setOpenRoyalties} />
+        <LicenseC2E c2e={activeC2E} setOpenRoyalties={setOpenRoyalties} />
       ) : (
         <>
           <div className="flex flex-col items-start w-full bg-white laptop:flex-row calc-function">
@@ -39,7 +39,7 @@ const Index = () => {
                     C2E Builder
                     {activeC2E && (
                       <button className="w-fit h-auto border-none outline-none py-2 px-3 text-white bg-[#0CA789]  rounded  font-normal text-sm">
-                        C2e-12345678
+                        {`C2E-${activeC2E.general.id}`}
                       </button>
                     )}
                   </h1>
@@ -71,11 +71,8 @@ const Index = () => {
               </div>
               {!!progressBarValue && (
                 <div className="w-full h-auto p-[12px]  border border-solid border-[#aaaaaa] shadow-boxShadowMd mb-[16px]">
-                  <p className="mb-1 text-sm font-normal text-black">
-                    Activity 1
-                  </p>
                   <p className="mb-1 text-xs font-semibold text-black">
-                    Uploading
+                    Uploading content...
                   </p>
 
                   <div className="w-full">
@@ -89,7 +86,7 @@ const Index = () => {
               )}
               {activeC2E && (
                 <div className="flex">
-                  <Workspace setOpenRoyalties={setOpenRoyalties} />
+                  <Workspace c2e={activeC2E} setOpenRoyalties={setOpenRoyalties} />
                 </div>
               )}
               {activeC2E && (
